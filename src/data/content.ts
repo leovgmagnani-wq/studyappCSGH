@@ -29,7 +29,7 @@ export const HISTORY_TOPICS: Topic[] = [
     subtopics: [
       {
         id: 'ger-1',
-        title: 'The Weimar Republic 1918-23',
+        title: 'Weimar Crisis Years (1918-23)',
         questions: [
           { id: 'ger-m-1', type: 'mcq', question: 'In what month and year was the armistice signed?', options: ['Oct 1918', 'Nov 1918', 'Dec 1918', 'Jan 1919'], correctAnswer: 1 },
           { id: 'ger-m-2', type: 'mcq', question: 'Who was the First President of the Weimar Republic?', options: ['Ebert', 'Hindenburg', 'Hitler', 'Stresemann'], correctAnswer: 0 },
@@ -40,6 +40,42 @@ export const HISTORY_TOPICS: Topic[] = [
           { id: 'ger-m-7', type: 'mcq', question: 'What was the total sum of reparations set in 1921?', options: ['£2.2 billion', '£4.4 billion', '£6.6 billion', '£8.8 billion'], correctAnswer: 2 },
           { id: 'ger-m-8', type: 'mcq', question: 'The French occupied the Ruhr in 1923 because:', options: ['Germany invaded', 'Reparations weren’t paid', 'To help the workers', 'To stop Communism'], correctAnswer: 1 },
           { id: 'ger-m-9', type: 'mcq', question: 'Hyperinflation meant that 1 US Dollar was worth how many marks by Nov 1923?', options: ['4.2 billion', '42 billion', '420 billion', '4.2 trillion'], correctAnswer: 3 },
+          { id: 'ger-m-106', type: 'mcq', question: 'What was the "stab in the back" theory called?', options: ['Dolchstoßlegende', 'Mein Kampf', 'Putsch', 'Anschluss'], correctAnswer: 0 },
+          { id: 'ger-m-107', type: 'mcq', question: 'Who were the "November Criminals"?', options: ['The Kaiser\'s advisors', 'The politicians who signed the Armistice', 'The Spartacists', 'The Freikorps'], correctAnswer: 1 },
+          { id: 'ger-m-108', type: 'mcq', question: 'The Freikorps were mainly:', options: ['Communist students', 'Ex-soldiers', 'Young Nazis', 'Foreigners'], correctAnswer: 1 },
+          { id: 'ger-m-109', type: 'mcq', question: 'Which area did France occupy in 1923?', options: ['Bavaria', 'The Ruhr', 'Berlin', 'Saxony'], correctAnswer: 1 },
+          { id: 'ger-m-110', type: 'mcq', question: 'How often was Article 48 used by Ebert?', options: ['Never', 'Once', '136 times', 'Over 500 times'], correctAnswer: 2 },
+          { id: 'ger-m-111', type: 'mcq', question: 'The Weimar Constitution gave women what right?', options: ['Right to own land', 'Right to vote', 'Right to join the army', 'Right to drive'], correctAnswer: 1 },
+          { id: 'ger-m-112', type: 'mcq', question: 'What was the percentage of the vote needed to get one seat in the Reichstag?', options: ['0.4%', '4%', '40%', 'No limit'], correctAnswer: 0 },
+          { id: 'ger-m-113', type: 'mcq', question: 'Who was the leader of the Kapp Putsch?', options: ['Wolfgang Kapp', 'Adolf Hitler', 'Rosa Luxemburg', 'Karl Liebknecht'], correctAnswer: 0 },
+          { id: 'ger-m-116', type: 'mcq', question: 'Stresemann became Chancellor in which month of 1923?', options: ['January', 'August', 'October', 'December'], correctAnswer: 1 },
+          { id: 'ger-m-117', type: 'mcq', question: 'Which group did the Weimar government use to crush the Spartacist Uprising?', options: ['The S.A.', 'The Gestapo', 'The Freikorps', 'The Red Army'], correctAnswer: 2 },
+          { id: 'ger-m-118', type: 'mcq', question: 'What was the percentage of industrial production lost by Germany after WW1?', options: ['5%', '10%', '15%', '25%'], correctAnswer: 1 },
+          { id: 'ger-m-119', type: 'mcq', question: 'The Reichstag was the name for the German:', options: ['King', 'Parliament', 'Army', 'Judiciary'], correctAnswer: 1 },
+          { id: 'ger-m-120', type: 'mcq', question: 'Which party was the main supporter of the Weimar Republic?', options: ['NSDAP', 'KPD', 'SPD', 'DNVP'], correctAnswer: 2 },
+          { id: 'ger-m-121', type: 'mcq', question: 'Passive resistance was used in the Ruhr by:', options: ['French soldiers', 'German workers', 'British spies', 'Hitler\'s men'], correctAnswer: 1 },
+          { id: 'ger-m-122', type: 'mcq', question: 'Which industrial region was occupied by France in 1923?', options: ['Bavaria', 'Silesia', 'The Ruhr', 'Saarland'], correctAnswer: 2 },
+          { id: 'ger-m-123', type: 'mcq', question: 'How many marks were equal to 1 US dollar in July 1923?', options: ['16,000', '160,000', '1.6 million', '16 million'], correctAnswer: 1 },
+          { id: 'ger-m-124', type: 'mcq', question: 'Hyperinflation destroyed the savings of:', options: ['The rich', 'The middle class', 'The poor', 'The government'], correctAnswer: 1 },
+          { id: 'ger-m-127', type: 'mcq', question: 'In the Weimar voting system, seats were allocated by:', options: ['Regional count', 'Percentage of total vote', 'Winner takes all', 'The President'], correctAnswer: 1 },
+          { id: 'ger-m-128', type: 'mcq', question: 'Ebert was a member of which party?', options: ['Zentrum', 'SPD', 'KPD', 'NSDAP'], correctAnswer: 1 },
+          { id: 'ger-m-129', type: 'mcq', question: 'What happened to the Kaiser at the end of WW1?', options: ['Executed', 'Exiled to Holland', 'Became President', 'Stayed as King'], correctAnswer: 1 },
+          { id: 'ger-m-130', type: 'mcq', question: 'Which treaty ended Germany\'s involvement in WW1?', options: ['Brest-Litovsk', 'Versailles', 'Locarno', 'Young'], correctAnswer: 1 },
+          { id: 'ger-m-133', type: 'mcq', question: 'Who was the President before Hindenburg?', options: ['Ebert', 'Hitler', 'Stresemann', 'Kaiser Wilhelm'], correctAnswer: 0 },
+          { id: 'ger-m-135', type: 'mcq', question: 'Which country invaded the Ruhr?', options: ['Britain', 'USA', 'France & Belgium', 'Poland'], correctAnswer: 2 },
+          { id: 'ger-m-136', type: 'mcq', question: 'The Spartanists were a group of:', options: ['Fascists', 'Communists', 'Monarchists', 'Anarchists'], correctAnswer: 1 },
+          { id: 'ger-m-137', type: 'mcq', question: 'What Article of the Treaty of Versailles blamed Germany for the war?', options: ['Article 48', 'Article 231', 'Article 1', 'Article 100'], correctAnswer: 1 },
+          { id: 'ger-m-138', type: 'mcq', question: 'Germany lost how much of its European territory in 1919?', options: ['3%', '13%', '23%', '33%'], correctAnswer: 1 },
+          { id: 'ger-m-139', type: 'mcq', question: 'The German navy was limited to how many battleships?', options: ['0', '6', '12', '24'], correctAnswer: 1 },
+          { id: 'ger-m-140', type: 'mcq', question: 'Which city was the site of the new Republic\'s first parliament?', options: ['Berlin', 'Munich', 'Weimar', 'Frankfurt'], correctAnswer: 2 },
+          { id: 'ger-m-141', type: 'mcq', question: 'The President was elected every:', options: ['4 years', '5 years', '7 years', '10 years'], correctAnswer: 2 },
+          { id: 'ger-m-142', type: 'mcq', question: 'Which party was led by Hugenberg?', options: ['SPD', 'DNVP', 'NSDAP', 'KPD'], correctAnswer: 1 }
+        ]
+      },
+      {
+        id: 'ger-golden',
+        title: 'The Golden Years (1924-29)',
+        questions: [
           { id: 'ger-m-10', type: 'mcq', question: 'Which currency did Stresemann introduce to stop hyperinflation?', options: ['Mark', 'Euro', 'Rentenmark', 'Thaler'], correctAnswer: 2 },
           { id: 'ger-m-11', type: 'mcq', question: 'The Dawes Plan (1924) involved loans from which country?', options: ['Britain', 'France', 'USA', 'Russia'], correctAnswer: 2 },
           { id: 'ger-m-12', type: 'mcq', question: 'In 1926, Germany was allowed to join:', options: ['The UN', 'The League of Nations', 'NATO', 'The EU'], correctAnswer: 1 },
@@ -51,43 +87,15 @@ export const HISTORY_TOPICS: Topic[] = [
           { id: 'ger-m-103', type: 'mcq', question: 'In 1924, Stresemann agreed to the Dawes Plan to:', options: ['Cancel all reparations', 'Reduce annual reparation payments', 'Increase the army', 'Annex Austria'], correctAnswer: 1 },
           { id: 'ger-m-104', type: 'mcq', question: 'The Young Plan (1929) reduced reparations to:', options: ['£2 billion', '£4 billion', '£6 billion', '£1 billion'], correctAnswer: 0 },
           { id: 'ger-m-105', type: 'mcq', question: 'Which city was the center of cultural "Golden Years"?', options: ['Munich', 'Hamburg', 'Berlin', 'Cologne'], correctAnswer: 2 },
-          { id: 'ger-m-106', type: 'mcq', question: 'What was the "stab in the back" theory called?', options: ['Dolchstoßlegende', 'Mein Kampf', 'Putsch', 'Anschluss'], correctAnswer: 0 },
-          { id: 'ger-m-107', type: 'mcq', question: 'Who were the "November Criminals"?', options: ['The Kaiser\'s advisors', 'The politicians who signed the Armistice', 'The Spartacists', 'The Freikorps'], correctAnswer: 1 },
-          { id: 'ger-m-108', type: 'mcq', question: 'The Freikorps were mainly:', options: ['Communist students', 'Ex-soldiers', 'Young Nazis', 'Foreigners'], correctAnswer: 1 },
-          { id: 'ger-m-109', type: 'mcq', question: 'Which area did France occupy in 1923?', options: ['Bavaria', 'The Ruhr', 'Berlin', 'Saxony'], correctAnswer: 1 },
-          { id: 'ger-m-110', type: 'mcq', question: 'How often was Article 48 used by Ebert?', options: ['Never', 'Once', '136 times', 'Over 500 times'], correctAnswer: 2 },
-          { id: 'ger-m-111', type: 'mcq', question: 'The Weimar Constitution gave women what right?', options: ['Right to own land', 'Right to vote', 'Right to join the army', 'Right to drive'], correctAnswer: 1 },
-          { id: 'ger-m-112', type: 'mcq', question: 'What was the percentage of the vote needed to get one seat in the Reichstag?', options: ['0.4%', '4%', '40%', 'No limit'], correctAnswer: 0 },
-          { id: 'ger-m-113', type: 'mcq', question: 'Who was the leader of the Kapp Putsch?', options: ['Wolfgang Kapp', 'Adolf Hitler', 'Rosa Luxemburg', 'Karl Liebknecht'], correctAnswer: 0 },
-          { id: 'ger-m-114', type: 'mcq', question: 'The Locarno Pact was signed in which year?', options: ['1923', '1924', '1925', '1926'], correctAnswer: 2 },
-          { id: 'ger-m-115', type: 'mcq', question: 'The Kellog-Briand Pact saw 62 nations agree to:', options: ['Increase trade', 'Stop reparations', 'Not use war to settle disputes', 'Build a shared army'], correctAnswer: 2 },
-          { id: 'ger-m-116', type: 'mcq', question: 'Stresemann became Chancellor in which month of 1923?', options: ['January', 'August', 'October', 'December'], correctAnswer: 1 },
-          { id: 'ger-m-117', type: 'mcq', question: 'Which group did the Weimar government use to crush the Spartacist Uprising?', options: ['The S.A.', 'The Gestapo', 'The Freikorps', 'The Red Army'], correctAnswer: 2 },
-          { id: 'ger-m-118', type: 'mcq', question: 'What was the percentage of industrial production lost by Germany after WW1?', options: ['5%', '10%', '15%', '25%'], correctAnswer: 1 },
-          { id: 'ger-m-119', type: 'mcq', question: 'The Reichstag was the name for the German:', options: ['King', 'Parliament', 'Army', 'Judiciary'], correctAnswer: 1 },
-          { id: 'ger-m-120', type: 'mcq', question: 'Which party was the main supporter of the Weimar Republic?', options: ['NSDAP', 'KPD', 'SPD', 'DNVP'], correctAnswer: 2 },
-          { id: 'ger-m-121', type: 'mcq', question: 'Passive resistance was used in the Ruhr by:', options: ['French soldiers', 'German workers', 'British spies', 'Hitler\'s men'], correctAnswer: 1 },
-          { id: 'ger-m-122', type: 'mcq', question: 'Which industrial region was occupied by France in 1923?', options: ['Bavaria', 'Silesia', 'The Ruhr', 'Saarland'], correctAnswer: 2 },
-          { id: 'ger-m-123', type: 'mcq', question: 'How many marks were equal to 1 US dollar in July 1923?', options: ['16,000', '160,000', '1.6 million', '16 million'], correctAnswer: 1 },
-          { id: 'ger-m-124', type: 'mcq', question: 'Hyperinflation destroyed the savings of:', options: ['The rich', 'The middle class', 'The poor', 'The government'], correctAnswer: 1 },
           { id: 'ger-m-125', type: 'mcq', question: 'Who was the architect who designed modern buildings in 1920s Germany?', options: ['Walter Gropius', 'Mies van der Rohe', 'Albert Speer', 'Otto Dix'], correctAnswer: 0 },
           { id: 'ger-m-126', type: 'mcq', question: 'The "Golden Age" of Weimar culture was primarily in:', options: ['1918-1923', '1924-1929', '1930-1933', '1934-1939'], correctAnswer: 1 },
-          { id: 'ger-m-127', type: 'mcq', question: 'In the Weimar voting system, seats were allocated by:', options: ['Regional count', 'Percentage of total vote', 'Winner takes all', 'The President'], correctAnswer: 1 },
-          { id: 'ger-m-128', type: 'mcq', question: 'Ebert was a member of which party?', options: ['Zentrum', 'SPD', 'KPD', 'NSDAP'], correctAnswer: 1 },
-          { id: 'ger-m-129', type: 'mcq', question: 'What happened to the Kaiser at the end of WW1?', options: ['Executed', 'Exiled to Holland', 'Became President', 'Stayed as King'], correctAnswer: 1 },
-          { id: 'ger-m-130', type: 'mcq', question: 'Which treaty ended Germany\'s involvement in WW1?', options: ['Brest-Litovsk', 'Versailles', 'Locarno', 'Young'], correctAnswer: 1 },
+          { id: 'ger-m-114', type: 'mcq', question: 'The Locarno Pact was signed in which year?', options: ['1923', '1924', '1925', '1926'], correctAnswer: 2 },
+          { id: 'ger-m-115', type: 'mcq', question: 'The Kellog-Briand Pact saw 62 nations agree to:', options: ['Increase trade', 'Stop reparations', 'Not use war to settle disputes', 'Build a shared army'], correctAnswer: 2 },
           { id: 'ger-m-131', type: 'mcq', question: 'What was the nickname of the 1920s cultural movement?', options: ['The Great Leap', 'The Expressionist movement', 'The Enlightenment', 'The Third Way'], correctAnswer: 1 },
           { id: 'ger-m-132', type: 'mcq', question: 'The League of Nations was joined by Germany in:', options: ['1924', '1925', '1926', '1927'], correctAnswer: 2 },
-          { id: 'ger-m-133', type: 'mcq', question: 'Who was the President before Hindenburg?', options: ['Ebert', 'Hitler', 'Stresemann', 'Kaiser Wilhelm'], correctAnswer: 0 },
           { id: 'ger-m-134', type: 'mcq', question: 'The Rentenmark replaced which existing currency?', options: ['Gold Mark', 'Papiermark', 'Deutsche Mark', 'Euro'], correctAnswer: 1 },
-          { id: 'ger-m-135', type: 'mcq', question: 'Which country invaded the Ruhr?', options: ['Britain', 'USA', 'France & Belgium', 'Poland'], correctAnswer: 2 },
-          { id: 'ger-m-136', type: 'mcq', question: 'The Spartanists were a group of:', options: ['Fascists', 'Communists', 'Monarchists', 'Anarchists'], correctAnswer: 1 },
-          { id: 'ger-m-137', type: 'mcq', question: 'What Article of the Treaty of Versailles blamed Germany for the war?', options: ['Article 48', 'Article 231', 'Article 1', 'Article 100'], correctAnswer: 1 },
-          { id: 'ger-m-138', type: 'mcq', question: 'Germany lost how much of its European territory in 1919?', options: ['3%', '13%', '23%', '33%'], correctAnswer: 1 },
-          { id: 'ger-m-139', type: 'mcq', question: 'The German navy was limited to how many battleships?', options: ['0', '6', '12', '24'], correctAnswer: 1 },
-          { id: 'ger-m-140', type: 'mcq', question: 'Which city was the site of the new Republic\'s first parliament?', options: ['Berlin', 'Munich', 'Weimar', 'Frankfurt'], correctAnswer: 2 },
-          { id: 'ger-m-141', type: 'mcq', question: 'The President was elected every:', options: ['4 years', '5 years', '7 years', '10 years'], correctAnswer: 2 },
-          { id: 'ger-m-142', type: 'mcq', question: 'Which party was led by Hugenberg?', options: ['SPD', 'DNVP', 'NSDAP', 'KPD'], correctAnswer: 1 }
+          { id: 'ger-golden-1', type: 'mcq', question: 'Which US President approved the Dawes Plan?', options: ['Wilson', 'Coolidge', 'Hoover', 'Roosevelt'], correctAnswer: 1 },
+          { id: 'ger-golden-2', type: 'mcq', question: 'The "Grand Coalition" of 1928 was led by:', options: ['Müller', 'Stresemann', 'Ebert', 'Brüning'], correctAnswer: 0 }
         ]
       },
       {
@@ -285,7 +293,11 @@ export const HISTORY_TOPICS: Topic[] = [
       { year: '1929', event: 'Wall Street Crash', description: 'Collapse of the New York Stock Exchange.', topicId: 'usa-1', significance: 'Global economic depression begins.' },
       { year: '1932', event: 'Bonus Army March', description: 'Veterans protest in Washington DC.', topicId: 'usa-1', significance: 'Damaged Hoover\'s reputation and helped FDR win.' },
       { year: '1933', event: 'The First New Deal', description: 'FDR starts the "First 100 Days".', topicId: 'usa-2', significance: 'Massive government intervention in the economy.' },
-      { year: '1935', event: 'Social Security Act', description: 'Provision for pensions and unemployment aid.', topicId: 'usa-2', significance: 'The core of the Second New Deal.' }
+      { year: '1935', event: 'Social Security Act', description: 'Provision for pensions and unemployment aid.', topicId: 'usa-2', significance: 'The core of the Second New Deal.' },
+      { year: '1936', event: 'FDR Re-election', description: 'Roosevelt wins second term in a landslide.', topicId: 'usa-2', significance: 'Confirmed public support for the New Deal.' },
+      { year: '1937', event: 'Court Packing Plan', description: 'FDR fails to reform the Supreme Court.', topicId: 'usa-3', significance: 'Damaged FDR\'s political standing and warned of executive overreach.' },
+      { year: '1939', event: 'Cash and Carry', description: 'Revision of the Neutrality Act.', topicId: 'usa-3', significance: 'Shift towards supporting the Allies while technically remaining neutral.' },
+      { year: '1941', event: 'Lend-Lease & Pearl Harbor', description: 'USA provides aid to Britain; Japan attacks Hawaii.', topicId: 'usa-3', significance: 'End of USA isolationism and formal entry into WWII.' }
     ],
     subtopics: [
       {
@@ -396,6 +408,27 @@ export const HISTORY_TOPICS: Topic[] = [
           { id: 'usa-m-98', type: 'mcq', question: 'The "Second New Deal" began in:', options: ['1933', '1935', '1939', '1941'], correctAnswer: 1 },
           { id: 'usa-m-99', type: 'mcq', question: 'FDR\'s "Black Cabinet" advised him on:', options: ['Secret military ops', 'Issues affecting African Americans', 'How to hide the depression', 'The Stock Market'], correctAnswer: 1 },
           { id: 'usa-m-100', type: 'mcq', question: 'The "Lend-Lease Act" (1941) was mainly for:', options: ['Domestic farming', 'Helping Britain fight in WW2', 'Buying land from Mexico', 'Building roads'], correctAnswer: 1 }
+        ]
+      },
+      {
+        id: 'usa-3',
+        title: 'Isolationism to War (1936-41)',
+        questions: [
+          { id: 'usa-m-101', type: 'mcq', question: 'What was the primary goal of US "Isolationism"?', options: ['To invade Europe', 'To stay out of foreign wars', 'To trade only with Asia', 'To increase taxes'], correctAnswer: 1 },
+          { id: 'usa-m-102', type: 'mcq', question: 'The "Neutrality Acts" of the 1930s were designed to:', options: ['Help Germany', 'Keep the US out of another world war', 'Start a war with Japan', 'Increase the size of the Navy'], correctAnswer: 1 },
+          { id: 'usa-m-103', type: 'mcq', question: 'The "Cash and Carry" policy (1939) allowed nations at war to buy which items from the US if they paid in cash and transported them themselves?', options: ['Military equipment', 'Food only', 'Oil only', 'Nothing'], correctAnswer: 0 },
+          { id: 'usa-m-104', type: 'mcq', question: 'Which 1941 act did FDR call the "Arsenal of Democracy"?', options: ['Neutrality Act', 'Social Security Act', 'Lend-Lease Act', 'Wagner Act'], correctAnswer: 2 },
+          { id: 'usa-m-105', type: 'mcq', question: 'On what date did Japan attack Pearl Harbor?', options: ['July 4, 1941', 'Dec 7, 1941', 'Jan 1, 1942', 'Nov 11, 1940'], correctAnswer: 1 },
+          { id: 'usa-m-106', type: 'mcq', question: 'What was the "Atlantic Charter"?', options: ['A trade deal with Canada', 'A statement of war aims by FDR and Churchill', 'A plan to invade Russia', 'A peace treaty with Japan'], correctAnswer: 1 },
+          { id: 'usa-m-107', type: 'mcq', question: 'The "Quarantine Speech" (1937) by FDR suggested that peaceful nations should do what to aggressive ones?', options: ['Support them', 'Isolate them', 'Invade them', 'Ignore them'], correctAnswer: 1 },
+          { id: 'usa-m-108', type: 'mcq', question: 'Who was the leader of the "America First Committee"?', options: ['Charles Lindbergh', 'FDR', 'Henry Ford', 'Al Capone'], correctAnswer: 0 },
+          { id: 'usa-m-109', type: 'mcq', question: 'What was the US response to the Japanese invasion of French Indochina in 1940?', options: ['Military alliance with Japan', 'Oil embargo and freezing assets', 'Selling more oil', 'Declaring war immediately'], correctAnswer: 1 },
+          { id: 'usa-m-110', type: 'mcq', question: 'Which ship was famously destroyed during the attack on Pearl Harbor?', options: ['USS Arizona', 'USS Enterprise', 'USS Missouri', 'USS Titanic'], correctAnswer: 0 },
+          { id: 'usa-m-111', type: 'mcq', question: 'FDR won an unprecedented third term as President in:', options: ['1932', '1936', '1940', '1944'], correctAnswer: 2 },
+          { id: 'usa-m-112', type: 'mcq', question: 'The "Panay Incident" (1937) involved the Japanese sinking of a US:', options: ['Submarine', 'Gunboat', 'Cargoship', 'Aircraft carrier'], correctAnswer: 1 },
+          { id: 'usa-m-113', type: 'mcq', question: 'What was the name of the project to build the atomic bomb, started in 1939?', options: ['Apollo Project', 'Manhattan Project', 'Atlas Project', 'Alpha Project'], correctAnswer: 1 },
+          { id: 'usa-m-114', type: 'mcq', question: 'The 1941 "Four Freedoms" speech identified freedom of speech, freedom of worship, freedom from want, and:', options: ['Freedom to travel', 'Freedom from fear', 'Freedom to work', 'Freedom from taxes'], correctAnswer: 1 },
+          { id: 'usa-m-115', type: 'mcq', question: 'The "Selective Training and Service Act" (1940) was the first US peacetime:', options: ['Voting law', 'Income tax', 'Military draft', 'Trade embargo'], correctAnswer: 2 }
         ]
       }
     ]
@@ -600,6 +633,48 @@ export const GEOGRAPHY_TOPICS: Topic[] = [
           { id: 'geo-m-100-13', type: 'mcq', question: 'One problem of an aging population is:', options: ['High crime rates', 'Increased cost of pensions and healthcare', 'Too many schools', 'High birth rates'], correctAnswer: 1 },
           { id: 'geo-m-100-14', type: 'mcq', question: 'Why do birth rates fall as countries develop?', options: ['Lower education for women', 'Improved availability of contraception', 'Higher infant mortality', 'Lack of technology'], correctAnswer: 1 },
           { id: 'geo-m-100-15', type: 'mcq', question: 'What is a "Net Migration"?', options: ['Total immigrants', 'Difference between immigrants and emigrants', 'Total population change', 'Number of people with passports'], correctAnswer: 1 }
+        ]
+      },
+      {
+        id: 'migration',
+        title: '1.2 Migration',
+        questions: [
+          { id: 'mig-m-1', type: 'mcq', question: 'What is "Internal Migration"?', options: ['Moving between countries', 'Moving within the same country', 'Moving between continents', 'Staying in the same house'], correctAnswer: 1 },
+          { id: 'mig-m-2', type: 'mcq', question: 'Which of these is a "Push Factor"?', options: ['Better job prospects', 'High crime rates', 'Good schools', 'Pleasant climate'], correctAnswer: 1 },
+          { id: 'mig-m-3', type: 'mcq', question: 'A person who has been forced to leave their country to escape war or persecution is a:', options: ['Economic migrant', 'Tourist', 'Refugee', 'Expatriate'], correctAnswer: 2 },
+          { id: 'mig-m-4', type: 'mcq', question: 'What is "Voluntary Migration"?', options: ['Moving by choice for a better life', 'Being forced to move by the government', 'Moving due to a natural disaster', 'None of the above'], correctAnswer: 0 },
+          { id: 'mig-m-5', type: 'mcq', question: 'What does "Remittances" refer to?', options: ['A type of visa', 'Money sent back to the home country by migrants', 'The cost of moving', 'A government tax on migrants'], correctAnswer: 1 },
+          { id: 'mig-m-6', type: 'mcq', question: 'Which is an economic "Pull Factor"?', options: ['Unemployment', 'Famine', 'Higher wages in the destination country', 'Poor housing'], correctAnswer: 2 },
+          { id: 'mig-m-7', type: 'mcq', question: 'What is "Step Migration"?', options: ['Moving directly to a new country', 'A series of shorter, less extreme moves to a final destination', 'Moving back and forth seasonally', 'Crossing mountains'], correctAnswer: 1 },
+          { id: 'mig-m-8', type: 'mcq', question: 'One benefit of migration for the host country is:', options: ['Increased pressure on services', 'Filling labor shortages', 'Brain drain', 'Loss of culture'], correctAnswer: 1 },
+          { id: 'mig-m-9', type: 'mcq', question: 'What is "Emigration"?', options: ['Entering a country', 'Leaving a country', 'Moving within a city', 'Visiting a country'], correctAnswer: 1 },
+          { id: 'mig-m-10', type: 'mcq', question: 'Which group is often called the "Windrush Generation" in the UK?', options: ['Post-WWII migrants from the Caribbean', 'Polish workers', 'Students from China', 'Refugees from Syria'], correctAnswer: 0 },
+          { id: 'mig-m-11', type: 'mcq', question: 'What is "Chain Migration"?', options: ['Migration linked to family members moving to a new location', 'Being moved in chains', 'Moving in a single line', 'Moving to the same factory'], correctAnswer: 0 },
+          { id: 'mig-m-12', type: 'mcq', question: 'An "IDP" is a:', options: ['International Data Provider', 'Internally Displaced Person', 'Independent Democratic Party', 'Internal Defense Program'], correctAnswer: 1 },
+          { id: 'mig-m-13', type: 'mcq', question: 'Seasonal migration of livestock and their people is:', options: ['Urbanisation', 'Gentrification', 'Transhumance', 'Counter-urbanisation'], correctAnswer: 2 },
+          { id: 'mig-m-14', type: 'mcq', question: 'Which is a Social "Push Factor"?', options: ['Lack of jobs', 'War and conflict', 'Desertification', 'Better entertainment'], correctAnswer: 1 },
+          { id: 'mig-m-15', type: 'mcq', question: 'The "Obstacles" to migration include:', options: ['Cost of travel', 'Visa requirements', 'Language barriers', 'All of the above'], correctAnswer: 3 }
+        ]
+      },
+      {
+        id: 'pop-structure',
+        title: '1.3 Population Structure',
+        questions: [
+          { id: 'str-m-1', type: 'mcq', question: 'A population pyramid shows:', options: ['Population by religion', 'Population by age and gender', 'Population by job types', 'Population by height'], correctAnswer: 1 },
+          { id: 'str-m-2', type: 'mcq', question: 'The "Dependency Ratio" is the ratio of:', options: ['Men to women', 'Working age population to those who are too young or too old to work', 'Birth rate to death rate', 'Rich to poor'], correctAnswer: 1 },
+          { id: 'str-m-3', type: 'mcq', question: 'A pyramid with a "bulge" in the middle likely has:', options: ['A high birth rate', 'A high death rate', 'A large number of working-age immigrants', 'Many children'], correctAnswer: 2 },
+          { id: 'str-m-4', type: 'mcq', question: 'A "Youthful Population" is common in countries with:', options: ['High life expectancy', 'High birth rates and low life expectancy', 'Low birth rates', 'Large elderly populations'], correctAnswer: 1 },
+          { id: 'str-m-5', type: 'mcq', question: 'An "Aging Population" is common in:', options: ['LEDCs', 'HICs', 'Deserts', 'Rainforests'], correctAnswer: 1 },
+          { id: 'str-m-6', type: 'mcq', question: 'A narrow base on a population pyramid indicates:', options: ['High birth rate', 'Low birth rate', 'High death rate', 'Large family sizes'], correctAnswer: 1 },
+          { id: 'str-m-7', type: 'mcq', question: 'What is the "Working Age" typically considered?', options: ['0-15', '15-64', '65+', 'Over 18 only'], correctAnswer: 1 },
+          { id: 'str-m-8', type: 'mcq', question: 'One CHALLENGE of a youthful population is:', options: ['Shortage of schools and clinics', 'Lack of jobs for the elderly', 'High cost of pensions', 'No need for toys'], correctAnswer: 0 },
+          { id: 'str-m-9', type: 'mcq', question: 'A country with a stage 4 DTM would have a pyramid that is:', options: ['Triangular', 'Beehive shaped (rectangular)', 'Upside down triangle', 'A circle'], correctAnswer: 1 },
+          { id: 'str-m-10', type: 'mcq', question: 'What does a wide top on a pyramid indicate?', options: ['High birth rate', 'High life expectancy', 'High infant mortality', 'Large numbers of children'], correctAnswer: 1 },
+          { id: 'str-m-11', type: 'mcq', question: 'Gender imbalance in a pyramid (more men than women) can be caused by:', options: ['Farming', 'Work-related migration (e.g. construction booms)', 'Weather', 'Education'], correctAnswer: 1 },
+          { id: 'str-m-12', type: 'mcq', question: 'Which policy might a country with an aging population adopt?', options: ['Increasing retirement age', 'Child limit', 'Higher taxes on families', 'Closing schools'], correctAnswer: 0 },
+          { id: 'str-m-13', type: 'mcq', question: 'The "Greying" of a population refers to:', options: ['Pollution', 'A rising proportion of elderly people', 'Loss of hair', 'Painting buildings'], correctAnswer: 1 },
+          { id: 'str-m-14', type: 'mcq', question: 'In a youthful population, the pyramid is:', options: ['Narrow at the bottom', 'Wide at the bottom', 'Wide at the top', 'Uniformly thin'], correctAnswer: 1 },
+          { id: 'str-m-15', type: 'mcq', question: 'Which is a way to reduce the dependency ratio?', options: ['Encourage more births', 'Attract working-age immigrants', 'Increase death rates', 'Lower the retirement age'], correctAnswer: 1 }
         ]
       },
       {

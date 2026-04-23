@@ -17,6 +17,27 @@ import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, COMPUTERSCIENCE_TOPICS } from './data
 import { SubjectId, Topic, Subtopic, UserProgress, Question, MemoryData, TimelineEvent } from './types';
 
 // SRS Algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
+const shuffleQuestion = (q: Question): Question => {
+  if (q.type !== 'mcq') return q;
+  const originalCorrectOption = q.options[q.correctAnswer];
+  const shuffledOptions = shuffleArray(q.options);
+  const newCorrectIndex = shuffledOptions.indexOf(originalCorrectOption);
+  return {
+    ...q,
+    options: shuffledOptions,
+    correctAnswer: newCorrectIndex
+  };
+};
+
 const updateSRS = (current: MemoryData | undefined, correct: boolean): MemoryData => {
   const now = Date.now();
   const defaultMemory: MemoryData = { interval: 0, ease: 2.5, consecutiveCorrect: 0, lastTested: now, nextReview: now };
@@ -106,7 +127,8 @@ export default function App() {
 
   const startTopicQuiz = (sub: Subtopic) => {
     setActiveSubtopic(sub);
-    setQuizQueue(sub.questions);
+    const shuffled = shuffleArray(sub.questions).map(shuffleQuestion);
+    setQuizQueue(shuffled);
     setQuizIndex(0);
     setQuizScore(0);
     setShowAnswer(false);
@@ -123,14 +145,14 @@ export default function App() {
     const due = allQuestions.filter(q => {
       const mem = userProgress.srs[q.id];
       return q.type === 'mcq' && (!mem || mem.nextReview <= now);
-    }).slice(0, 20);
+    });
 
     if (due.length === 0) {
       alert("No questions due for review! Great job.");
       return;
     }
     
-    setQuizQueue(due);
+    setQuizQueue(shuffleArray(due).slice(0, 20).map(shuffleQuestion));
     setQuizIndex(0);
     setQuizScore(0);
     setShowAnswer(false);
