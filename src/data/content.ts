@@ -16,7 +16,10 @@ export const HISTORY_TOPICS: Topic[] = [
       { year: '1923', event: 'Hyperinflation & Munich Putsch', description: 'Economic collapse and Hitler\'s first grab for power.', topicId: 'ger-1', significance: 'Hitler realized he needed to win power legally; Weimar survived but was weakened.' },
       { year: '1924', event: 'Dawes Plan', description: 'USA begins loans to Germany.', topicId: 'ger-1', significance: 'Sparked the "Golden Years" of economic recovery.' },
       { year: '1929', event: 'Wall Street Crash', description: 'Economic collapse in USA hits Germany.', topicId: 'ger-2', significance: 'Key catalyst for Nazi support as unemployment hit 6 million.' },
+      { year: '1930', event: 'End of Grand Coalition', description: 'Müller government falls; start of presidential rule.', topicId: 'ger-2', significance: 'Democracy begins to crumble; Hindenburg uses Article 48.' },
+      { year: '1932', event: 'July Election', description: 'Nazis win 230 seats, becoming the largest party.', topicId: 'ger-2', significance: 'Proved the massive popularity of the Nazi party.' },
       { year: '1933', event: 'Hitler becomes Chancellor', description: 'Hindenburg appoints Hitler as head of government.', topicId: 'ger-2', significance: 'The beginning of the end for democracy.' },
+      { year: '1933', event: 'Reichstag Fire', description: 'Parliament building burns down.', topicId: 'ger-3', significance: 'Used to ban Communists and suspend civil rights.' },
       { year: '1934', event: 'Night of the Long Knives', description: 'Hitler purges the SA leadership.', topicId: 'ger-3', significance: 'Removed internal threats and secured the support of the regular army.' },
       { year: '1935', event: 'Nuremberg Laws', description: 'Anti-Semitic laws introduced.', topicId: 'ger-3', significance: 'Legally marginalized Jews in German society.' },
       { year: '1936', event: 'Berlin Olympics', description: 'Germany hosts the Summer Games.', topicId: 'ger-3', significance: 'Used as a platform for Nazi propaganda and racial superiority myths.' },
@@ -297,7 +300,11 @@ export const HISTORY_TOPICS: Topic[] = [
       { year: '1936', event: 'FDR Re-election', description: 'Roosevelt wins second term in a landslide.', topicId: 'usa-2', significance: 'Confirmed public support for the New Deal.' },
       { year: '1937', event: 'Court Packing Plan', description: 'FDR fails to reform the Supreme Court.', topicId: 'usa-3', significance: 'Damaged FDR\'s political standing and warned of executive overreach.' },
       { year: '1939', event: 'Cash and Carry', description: 'Revision of the Neutrality Act.', topicId: 'usa-3', significance: 'Shift towards supporting the Allies while technically remaining neutral.' },
-      { year: '1941', event: 'Lend-Lease & Pearl Harbor', description: 'USA provides aid to Britain; Japan attacks Hawaii.', topicId: 'usa-3', significance: 'End of USA isolationism and formal entry into WWII.' }
+      { year: '1933', event: 'FDR Takes Office', description: 'Start of the New Deal era.', topicId: 'usa-2', significance: 'Shift toward government intervention in the economy.' },
+      { year: '1941', event: 'Pearl Harbor', description: 'Japanese attack on the US naval base.', topicId: 'usa-3', significance: 'Direct cause of US entry into World War II.' },
+      { year: '1942', event: 'War Production Board', description: 'Transition to a war economy.', topicId: 'usa-3', significance: 'Total mobilization of US industry for the war effort.' },
+      { year: '1944', event: 'GI Bill signed', description: 'Benefits for returning veterans.', topicId: 'usa-3', significance: 'Layed foundations for post-war middle class growth.' },
+      { year: '1945', event: 'Manhattan Project / Hiroshima', description: 'First use of atomic weapons.', topicId: 'usa-3', significance: 'Ended war with Japan and started the Atomic Age.' }
     ],
     subtopics: [
       {
@@ -949,6 +956,27 @@ export const GEOGRAPHY_TOPICS: Topic[] = [
         ]
       },
       {
+        id: 'food-production',
+        title: '3.2 Food Production',
+        questions: [
+          { id: 'geo-food-1', type: 'mcq', question: 'What is "Food Security"?', options: ['Locking up food', 'When all people at all times have access to sufficient, safe, nutritious food', 'Having a lot of restaurants', 'Government food taxes'], correctAnswer: 1 },
+          { id: 'geo-food-2', type: 'mcq', question: 'Which is a "Human" factor affecting food production?', options: ['Soil quality', 'Relief of the land', 'Available technology and capital', 'Annual rainfall'], correctAnswer: 2 },
+          { id: 'geo-food-3', type: 'mcq', question: 'What is "Chronic Malnutrition"?', options: ['Eating too much', 'Long-term lack of essential nutrients', 'Allergy to milk', 'Temporary hunger'], correctAnswer: 1 },
+          { id: 'geo-food-4', type: 'mcq', question: 'The "Green Revolution" involved:', options: ['Planting more trees in cities', 'Increased use of high-yield variety (HYV) seeds and fertilizers', 'Banning all chemicals', 'Moving to the desert'], correctAnswer: 1 },
+          { id: 'geo-food-5', type: 'mcq', question: 'What is an "Irrigation" system?', options: ['A way to harvest crops', 'Artificial application of water to land for agriculture', 'A type of tractor', 'A fence'], correctAnswer: 1 },
+          { id: 'geo-food-6', type: 'mcq', question: 'Genetically Modified (GM) crops are engineered to:', options: ['Taste bad', 'Resist pests and tolerate harsh conditions', 'Decrease yield', 'Always be red'], correctAnswer: 1 },
+          { id: 'geo-food-7', type: 'mcq', question: 'Which is a cause of food shortages?', options: ['Drought and floods', 'Conflict and war', 'Poor infrastructure', 'All of the above'], correctAnswer: 3 },
+          { id: 'geo-food-8', type: 'mcq', question: 'What is "Hydroponics"?', options: ['Farming in space', 'Growing plants in mineral nutrient solutions without soil', 'Farming near a river', 'Growing plants in ice'], correctAnswer: 1 },
+          { id: 'geo-food-9', type: 'mcq', question: 'A "Cash Crop" is grown primarily for:', options: ['Eating by the farmer', 'Sale on the market for profit', 'Donating to charity', 'Feeding livestock only'], correctAnswer: 1 },
+          { id: 'geo-food-10', type: 'mcq', question: 'Which is an environmental impact of intensive farming?', options: ['Improved soil health', 'Boutique food', 'Water pollution from fertilizers', 'Higher biodiversity'], correctAnswer: 2 },
+          { id: 'geo-food-11', type: 'mcq', question: 'What is "Overgrazing"?', options: ['Not enough animals', 'Too many animals on a piece of land, leading to soil erosion', 'Fencing in animals', 'Feeding animals grain'], correctAnswer: 1 },
+          { id: 'geo-food-12', type: 'mcq', question: 'The "World Food Programme" (WFP) provides:', options: ['Military aid', 'Emergency food assistance', 'Video games', 'Luxury cars'], correctAnswer: 1 },
+          { id: 'geo-food-13', type: 'mcq', question: 'What is "Famine"?', options: ['A large party', 'Extreme scarcity of food leading to starvation', 'A new type of seed', 'High food prices only'], correctAnswer: 1 },
+          { id: 'geo-food-14', type: 'mcq', question: 'Which is a way to increase food production sustainably?', options: ['Using more pesticides', 'Crop rotation and organic fertilizers', 'Clearing all forests', 'Ignoring water use'], correctAnswer: 1 },
+          { id: 'geo-food-15', type: 'mcq', question: 'What is "Agribusiness"?', options: ['Small scale gardening', 'Large-scale commercial farming run as a business', 'Buying food at a shop', 'Selling tractors only'], correctAnswer: 1 }
+        ]
+      },
+      {
         id: 'industry',
         title: '3.3 Industry',
         questions: [
@@ -1142,12 +1170,25 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
         title: 'Data Representation',
         questions: [
           { id: 'cs-tsi-m1', type: 'mcq', question: 'Which character set allows for a greater range of characters including different languages and emojis?', options: ['ASCII', 'Unicode', 'Binary', 'Hexadecimal'], correctAnswer: 1, explanation: 'Unicode uses more bits than ASCII, allowing for over 1 million characters including various languages and symbols.' },
-          { id: 'cs-tsi-m2', type: 'mcq', question: 'The number of samples taken per second in a sound recording is the:', options: ['Sample resolution', 'Amplitude', 'Sample rate', 'Bit depth'], correctAnswer: 2, explanation: 'Sample rate is measured in Hertz (Hz) and represents how many samples are taken every second.' },
+          { id: 'cs-tsi-m2', type: 'mcq', question: 'The number of samples taken per second in a sound recording is the:', options: ['Sample resolution', 'Amplitude', 'Sample rate', 'Bit depth'], correctAnswer: 2 },
           { id: 'cs-tsi-m3', type: 'mcq', question: 'What is "Colour Depth"?', options: ['The size of an image', 'Number of bits used to represent a pixel\'s color', 'The contrast level', 'The total number of pixels'], correctAnswer: 1 },
           { id: 'cs-tsi-m4', type: 'mcq', question: 'Which compression type removes data permanently?', options: ['Lossless', 'Lossy', 'RLE', 'Zip'], correctAnswer: 1 },
           { id: 'cs-tsi-m5', type: 'mcq', question: 'A pixel is short for:', options: ['Picture Element', 'Priority Level', 'Primary Label', 'Process Unit'], correctAnswer: 0 },
-          { id: 'cs-tsi-m6', type: 'mcq', question: 'RLE (Run Length Encoding) is an example of:', options: ['Lossy compression', 'Number conversion', 'Lossless compression', 'Error correction'], correctAnswer: 2 },
-          { id: 'cs-tsi-s1', type: 'structured', question: 'Explain the effect of increasing the sample resolution on a sound file. [3]', markScheme: '• Increased accuracy of the recording // closer to original sound\n• Larger file size\n• More bits used to represent each amplitude value // larger range of values', modelAnswer: 'Increasing the sample resolution means more bits are used to represent each amplitude measurement. This results in a more accurate digital representation of the sound wave, improving quality, but also increases the overall file size.', keywords: ['accuracy', 'bits', 'amplitude'] }
+          { id: 'cs-tsi-m16', type: 'mcq', question: 'How is file size for a mono sound file calculated?', options: ['Sample rate × sample resolution × duration', 'Sample rate × bits per pixel', 'Resolution × color depth', 'Width × height'], correctAnswer: 0 },
+          { id: 'cs-tsi-m17', type: 'mcq', question: 'A bitmap image is made of:', options: ['Vectors', 'Pixels', 'Equations', 'Layered text'], correctAnswer: 1 },
+          { id: 'cs-tsi-m18', type: 'mcq', question: 'What is the effect of reducing colour depth?', options: ['Better quality', 'Smaller file size but fewer possible colours', 'Faster CPU speed', 'No change to quality'], correctAnswer: 1 },
+          { id: 'cs-tsi-m19', type: 'mcq', question: 'Lossless compression is essential for:', options: ['Music', 'Text files and programs', 'High-res photos', 'Videos'], correctAnswer: 1 },
+          { id: 'cs-tsi-m20', type: 'mcq', question: 'Which is a common sampling frequency for CD-quality audio?', options: ['44.1 kHz', '8 kHz', '192 kHz', '10 Hz'], correctAnswer: 0 },
+          { id: 'cs-tsi-m21', type: 'mcq', question: 'Total pixels in an image is found by:', options: ['Width + Height', 'Width × Height', 'Width / Height', 'Color Depth'], correctAnswer: 1 },
+          { id: 'cs-tsi-m22', type: 'mcq', question: 'GIF format usually uses ______ bits per pixel.', options: ['4', '8', '24', '32'], correctAnswer: 1 },
+          { id: 'cs-tsi-m23', type: 'mcq', question: 'Higher resolution in an image means:', options: ['Fewer pixels per inch', 'More pixels per inch (PPI)', 'Less memory used', 'Darker colors'], correctAnswer: 1 },
+          { id: 'cs-tsi-m24', type: 'mcq', question: 'What is a "nibble"?', options: ['1 bit', '4 bits', '8 bits', '16 bits'], correctAnswer: 1 },
+          { id: 'cs-tsi-m25', type: 'mcq', question: 'Increasing bit depth in audio results in:', options: ['Lower dynamic range', 'Higher dynamic range and accuracy', 'Smaller file size', 'Slower pitch'], correctAnswer: 1 },
+          { id: 'cs-tsi-m26', type: 'mcq', question: 'What unit is used for Bit Depth?', options: ['Hertz', 'Bits', 'Bytes', 'Pixels'], correctAnswer: 1 },
+          { id: 'cs-tsi-m27', type: 'mcq', question: 'Which format is natively lossless?', options: ['JPEG', 'MP3', 'WAV', 'GIF'], correctAnswer: 2 },
+          { id: 'cs-tsi-m28', type: 'mcq', question: 'Compression is used to:', options: ['Make files larger', 'Reduce the time to transmit files over a network', 'Speed up the CPU', 'Improve the monitor resolution'], correctAnswer: 1 },
+          { id: 'cs-tsi-m29', type: 'mcq', question: 'A mebi-byte (MiB) is exactly how many bytes?', options: ['1,000,000', '1,024', '1,048,576', '100,000'], correctAnswer: 2 },
+          { id: 'cs-tsi-m30', type: 'mcq', question: 'Which character set was the precursor to Unicode?', options: ['ASCII', 'Binary', 'Hex', 'Logic'], correctAnswer: 0 }
         ]
       }
     ]
@@ -1169,7 +1210,7 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
         title: 'Methods of Transmission',
         questions: [
           { id: 'cs-dtx-m1', type: 'mcq', question: 'Which part of a data packet contains the destination address and packet number?', options: ['Payload', 'Trailer', 'Header', 'Router'], correctAnswer: 2, explanation: 'The header contains administrative data like addresses and sequencing info.' },
-          { id: 'cs-dtx-m2', type: 'mcq', question: 'Data that travels in both directions but only one at a time is:', options: ['Simplex', 'Half-duplex', 'Full-duplex', 'Parallel'], correctAnswer: 1, explanation: 'Half-duplex allows two-way communication but not simultaneously (e.g. walkie-talkie).' },
+          { id: 'cs-dtx-m2', type: 'mcq', question: 'Data that travels in both directions but only one at a time is:', options: ['Simplex', 'Half-duplex', 'Full-duplex', 'Parallel'], correctAnswer: 1 },
           { id: 'cs-dtx-m3', type: 'mcq', question: 'Serial transmission is better than parallel for long distances because:', options: ['It is faster', 'It uses fewer wires and has less skewing', 'It uses more bits at once', 'It is cheaper to manufacture'], correctAnswer: 1 },
           { id: 'cs-dtx-m4', type: 'mcq', question: 'What is "Crosstalk" in data transmission?', options: ['People talking in the background', 'Electromagnetic interference between adjacent wires', 'Router errors', 'Packet sequencing issues'], correctAnswer: 1 },
           { id: 'cs-dtx-m5', type: 'mcq', question: 'USB stands for:', options: ['Universal Serial Bus', 'Unified Systems Built', 'Unique Server Backbone', 'Utility Standard Bridge'], correctAnswer: 0 },
@@ -1177,7 +1218,17 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
           { id: 'cs-dtx-m7', type: 'mcq', question: 'Simplex transmission means:', options: ['One direction only', 'Two directions simultaneously', 'Two directions one at a time', 'No direction'], correctAnswer: 0 },
           { id: 'cs-dtx-m8', type: 'mcq', question: 'Full-duplex allows data to flow:', options: ['One way only', 'Both ways at the same time', 'Both ways but one at a time', 'Only on Sundays'], correctAnswer: 1 },
           { id: 'cs-dtx-m9', type: 'mcq', question: 'Parallel transmission uses:', options: ['One wire', 'Multiple wires and sends many bits at once', 'Wireless only', 'Sound waves'], correctAnswer: 1 },
-          { id: 'cs-dtx-s1', type: 'structured', question: 'Describe the process of packet switching. [4]', markScheme: '• Data is broken down into packets\n• Each packet is given a header with destination address and packet number\n• Packets may take different routes towards the destination\n• Routers control the path of each packet\n• Packets are reordered/reassembled at the destination using packet numbers', modelAnswer: 'In packet switching, data is divided into smaller packets. Each packet has a header containing the destination IP and a sequence number. Packets travel across different paths through routers and are reassembled in the correct order at the destination.', keywords: ['packets', 'reordered', 'router', 'header'] }
+          { id: 'cs-dtx-m10', type: 'mcq', question: 'A packet "Payload" is the:', options: ['Envelope', 'Actual data being sent', 'Address', 'Error detector'], correctAnswer: 1 },
+          { id: 'cs-dtx-m16', type: 'mcq', question: 'Which device is used to route packets along the fastest path?', options: ['Switch', 'Router', 'Hub', 'Bridge'], correctAnswer: 1 },
+          { id: 'cs-dtx-m17', type: 'mcq', question: 'What is the purpose of a packet\'s "Sequence Number"?', options: ['To tell the time', 'To allow reassembly in the correct order', 'To encrypt data', 'To identify the sender'], correctAnswer: 1 },
+          { id: 'cs-dtx-m18', type: 'mcq', question: 'Packet switching is used on:', options: ['Telephone lines', 'The Internet', 'A direct serial cable', 'A single CPU bus'], correctAnswer: 1 },
+          { id: 'cs-dtx-m19', type: 'mcq', question: 'Parallel transmission is more ______ to skewed data as cable length increases.', options: ['Immune', 'Susceptible', 'Fast', 'Cheap'], correctAnswer: 1 },
+          { id: 'cs-dtx-m20', type: 'mcq', question: 'USB 3.0 is much ______ than USB 2.0.', options: ['Faster', 'Slower', 'Larger', 'Heavier'], correctAnswer: 0 },
+          { id: 'cs-dtx-m21', type: 'mcq', question: 'The "Stop Bit" in asynchronous transmission:', options: ['Deletes the data', 'Signals the end of a byte', 'Starts a new program', 'Slows the clock'], correctAnswer: 1 },
+          { id: 'cs-dtx-m22', type: 'mcq', question: 'Synchronous transmission sends data as:', options: ['Individual bits', 'A continuous stream timed by a clock', 'Random bursts', 'Text only'], correctAnswer: 1 },
+          { id: 'cs-dtx-m23', type: 'mcq', question: 'A NIC (Network Interface Card) has a unique hard-coded address called:', options: ['IP Address', 'MAC Address', 'Home Address', 'URL'], correctAnswer: 1 },
+          { id: 'cs-dtx-m24', type: 'mcq', question: 'What is "Bandwidth"?', options: ['The physical size of a cable', 'The maximum rate of data transfer across a network', 'The price of the internet', 'A type of router'], correctAnswer: 1 },
+          { id: 'cs-dtx-m25', type: 'mcq', question: 'A data packet header includes the recipient\'s:', options: ['Name', 'IP Address', 'Physical weight', 'Browser type'], correctAnswer: 1 }
         ]
       }
     ]
@@ -1204,6 +1255,14 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
           { id: 'cs-err-m5', type: 'mcq', question: 'An "Acknowledgment" (ACK) in ARQ is:', options: ['A signal that data was received correctly', 'An error message', 'A type of key', 'A file'], correctAnswer: 0 },
           { id: 'cs-err-m6', type: 'mcq', question: 'A "Timeout" in ARQ occurs when:', options: ['The computer is too hot', 'No acknowledgment is received within a set time', 'The printer is out of paper', 'The user leaves'], correctAnswer: 1 },
           { id: 'cs-err-m7', type: 'mcq', question: 'Odd parity means:', options: ['The total count of 1s is odd', 'The total count of 0s is odd', 'The parity bit is always 0', 'The byte is odd-numbered'], correctAnswer: 0 },
+          { id: 'cs-err-m8', type: 'mcq', question: 'A checksum is calculated ______ transmission.', options: ['Before', 'After', 'Both before and after (for comparison)', 'During'], correctAnswer: 2 },
+          { id: 'cs-err-m9', type: 'mcq', question: 'Which check is common in ISBN-13?', options: ['Parity', 'Checksum', 'Check digit', 'Echo'], correctAnswer: 2 },
+          { id: 'cs-err-m10', type: 'mcq', question: 'A parity block (parity check across rows and columns) can:', options: ['Only detect errors', 'Detect and correct a single bit error', 'Prevent all viruses', 'Make data smaller'], correctAnswer: 1 },
+          { id: 'cs-err-m11', type: 'mcq', question: 'Check digit algorithms often include:', options: ['Modulo arithmetic', 'Prime numbers only', 'Binary shifts', 'Nothing'], correctAnswer: 0 },
+          { id: 'cs-err-m12', type: 'mcq', question: 'Which check detects transposition errors (e.g. 17 instead of 71)?', options: ['Check digit', 'Parity bit', 'None', 'Both'], correctAnswer: 0 },
+          { id: 'cs-err-m13', type: 'mcq', question: 'Echo check is ______ for large files.', options: ['Very efficient', 'Inefficient (doubles data sent)', 'Best', 'Mandatory'], correctAnswer: 1 },
+          { id: 'cs-err-m14', type: 'mcq', question: 'A "Positive Acknowledgment" tells the sender:', options: ['The file is too big', 'The data was correct', 'The computer is on', 'Try again'], correctAnswer: 1 },
+          { id: 'cs-err-m15', type: 'mcq', question: 'ARQ stands for:', options: ['Automatic Repeat Request', 'Always Real Quality', 'Active Router Query', 'All Round Queue'], correctAnswer: 0 },
           { id: 'cs-err-s1', type: 'structured', question: 'Explain how an Automatic Repeat Request (ARQ) works. [4]', markScheme: '• Uses a timer (sender starts timer when packet sent)\n• Uses acknowledgements (ACK/NAK)\n• If receiver detects error, sends NAK // if no error, sends ACK\n• If sender receives NAK or timer expires (timeout), packet is retransmitted\n• Process repeats until ACK received or limit reached', modelAnswer: 'ARQ uses a timer and acknowledgement messages. When a packet is sent, a timer starts. If the receiver finds an error, it sends a NAK; if the sender gets a NAK or the timer runs out (timeout), it retransmits the packet. If the packet is correct, an ACK is sent.', keywords: ['timer', 'ACK', 'NAK', 'retransmit'] }
         ]
       }
@@ -1230,6 +1289,16 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
           { id: 'cs-enc-m3', type: 'mcq', question: 'Which encryption method is generally faster?', options: ['Symmetric', 'Asymmetric', 'Quantum', 'Blockchain'], correctAnswer: 0 },
           { id: 'cs-enc-m4', type: 'mcq', question: 'A "Plaintext" is:', options: ['Encrypted data', 'Original unencrypted data', 'The key', 'The algorithm'], correctAnswer: 1 },
           { id: 'cs-enc-m5', type: 'mcq', question: 'HTTPS uses which type of encryption for secure browsing?', options: ['None', 'SSL/TLS (using asymmetric/symmetric)', 'Only parity', 'Only checksums'], correctAnswer: 1 },
+          { id: 'cs-enc-m6', type: 'mcq', question: 'Asymmetric encryption requires ______ keys.', options: ['One', 'Two (Public and Private)', 'None', 'Variable'], correctAnswer: 1 },
+          { id: 'cs-enc-m7', type: 'mcq', question: 'If you want to send an encrypted message to Bob in asymmetric, you use ______.', options: ['Bob\'s public key', 'Bob\'s private key', 'Your private key', 'The master key'], correctAnswer: 0 },
+          { id: 'cs-enc-m8', type: 'mcq', question: 'Bob decrypts the message using ______.', options: ['His public key', 'His private key', 'Sender\'s public key', 'The secret code'], correctAnswer: 1 },
+          { id: 'cs-enc-m9', type: 'mcq', question: 'AES is an example of ______ encryption.', options: ['Symmetric', 'Asymmetric', 'One-way', 'Broken'], correctAnswer: 0 },
+          { id: 'cs-enc-m10', type: 'mcq', question: 'RSA is an example of ______ encryption.', options: ['Symmetric', 'Asymmetric', 'Weak', 'Hardware'], correctAnswer: 1 },
+          { id: 'cs-enc-m11', type: 'mcq', question: 'What is "Brute Force"?', options: ['Asking nicely', 'Trying all possible keys', 'Social engineering', 'Using a big computer only'], correctAnswer: 1 },
+          { id: 'cs-enc-m12', type: 'mcq', question: 'A "Digital Signature" ensures ______ of a message.', options: ['Speed', 'Authenticity and Integrity', 'Encryption', 'Confidentiality only'], correctAnswer: 1 },
+          { id: 'cs-enc-m13', type: 'mcq', question: 'Why is asymmetric often used with symmetric?', options: ['To make it slower', 'To securely exchange a symmetric session key', 'Because it is cheaper', 'No reason'], correctAnswer: 1 },
+          { id: 'cs-enc-m14', type: 'mcq', question: 'Encryption protects against ______.', options: ['Data loss', 'Unauthorized access', 'Hardware failure', 'Power cuts'], correctAnswer: 1 },
+          { id: 'cs-enc-m15', type: 'mcq', question: 'What is a "Key" in encryption?', options: ['A physical key', 'A parameter that determines the output of a cipher', 'A password only', 'A type of file'], correctAnswer: 1 },
           { id: 'cs-enc-s1', type: 'structured', question: 'Describe the role of a public key and a private key in asymmetric encryption. [4]', markScheme: '• Pair of mathematically linked keys\n• Public key is shared freely // anyone can access it\n• Public key is used to encrypt data\n• Private key is kept secret // only owner has it\n• Private key is used to decrypt data that was encrypted with the public key', modelAnswer: 'Asymmetric encryption uses a pair of linked keys. The public key is widely shared and used by anyone to encrypt data intended for the owner. The private key is kept secret by the owner and is the only key that can decrypt that data.', keywords: ['linked', 'public', 'private', 'encrypt', 'decrypt'] }
         ]
       }
@@ -1708,8 +1777,58 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
     ]
   },
   {
-    id: 'ide',
+    id: 'db',
     section: '§4.2',
+    title: 'Databases',
+    description: 'Relational databases, primary/foreign keys, SQL (SELECT, FROM, WHERE, ORDER BY, SUM, COUNT)',
+    color: 'emerald',
+    subtopics: [
+      {
+        id: 'db-relational',
+        title: 'Relational Databases',
+        questions: [
+          { id: 'cs-db-m1', type: 'mcq', question: 'What is a "Primary Key"?', options: ['A key used to encrypt data', 'A unique identifier for a record in a table', 'The most important data in a database', 'A key that links two tables'], correctAnswer: 1 },
+          { id: 'cs-db-m2', type: 'mcq', question: 'A "Foreign Key" is used to:', options: ['Identify a unique record', 'Establish a link between two tables', 'Search for data', 'Encrypt the database'], correctAnswer: 1 },
+          { id: 'cs-db-m3', type: 'mcq', question: 'Which SQL command is used to retrieve data?', options: ['GET', 'FETCH', 'SELECT', 'EXTRACT'], correctAnswer: 2 },
+          { id: 'cs-db-m4', type: 'mcq', question: 'In SQL, the "WHERE" clause is used to:', options: ['Specify the table', 'Filter records', 'Sort records', 'Group records'], correctAnswer: 1 },
+          { id: 'cs-db-m5', type: 'mcq', question: 'What identifies a "Field" in a database?', options: ['A row', 'A column', 'A table', 'A key'], correctAnswer: 1 },
+          { id: 'cs-db-m6', type: 'mcq', question: 'What is a "Record" in a database?', options: ['A single piece of data', 'A complete set of data about an item (a row)', 'A table', 'A primary key'], correctAnswer: 1 },
+          { id: 'cs-db-m7', type: 'mcq', question: 'Flat-file databases are often replaced by relational databases to:', options: ['Increase data redundancy', 'Reduce data redundancy', 'Make it slower', 'Decrease security'], correctAnswer: 1 },
+          { id: 'cs-db-m8', type: 'mcq', question: 'Which SQL keyword sorts the result set?', options: ['SORT BY', 'ORDER BY', 'ARRANGE BY', 'GROUP BY'], correctAnswer: 1 },
+          { id: 'cs-db-m9', type: 'mcq', question: 'The SQL operator "*" means:', options: ['Select nothing', 'Select all columns', 'Select only strings', 'Multiplication'], correctAnswer: 1 },
+          { id: 'cs-db-m10', type: 'mcq', question: 'What does DBMS stand for?', options: ['Data Base Management System', 'Digital Backup Management System', 'Distributed Base Memory System', 'Data Board Member sync'], correctAnswer: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'alg',
+    section: '§4.3',
+    title: 'Algorithms',
+    description: 'Structure charts, flowcharts, pseudocode, searching (bubble, insertion), sorting',
+    color: 'indigo',
+    subtopics: [
+      {
+        id: 'alg-design',
+        title: 'Algorithm Design',
+        questions: [
+          { id: 'cs-alg-m1', type: 'mcq', question: 'Which flowchart symbol represents a decision?', options: ['Rectangle', 'Diamond', 'Parallelogram', 'Oval'], correctAnswer: 1 },
+          { id: 'cs-alg-m2', type: 'mcq', question: 'A "Bubble Sort" works by:', options: ['Picking a random element', 'Repeatedly swapping adjacent elements if they are in the wrong order', 'Dividing the list into two', 'Inserting elements into a new list'], correctAnswer: 1 },
+          { id: 'cs-alg-m3', type: 'mcq', question: 'Pseudocode is:', options: ['Actual programming code', 'A detailed yet readable description of what a program must do', 'A type of virus', 'Hardware documentation'], correctAnswer: 1 },
+          { id: 'cs-alg-m4', type: 'mcq', question: 'In a flowchart, a parallelogram represents:', options: ['Start/Stop', 'Process', 'Input/Output', 'Decision'], correctAnswer: 2 },
+          { id: 'cs-alg-m5', type: 'mcq', question: 'What is "Linear Search"?', options: ['Searching in a random order', 'Checking every element in a list sequentially until the target is found', 'Only searching for numbers', 'Dividing the list in half recursively'], correctAnswer: 1 },
+          { id: 'cs-alg-m6', type: 'mcq', question: 'The process of step-by-step simplification of a problem is:', options: ['Binary shift', 'Decomposition / Stepwise refinement', 'Encryption', 'Abstraction'], correctAnswer: 1 },
+          { id: 'cs-alg-m7', type: 'mcq', question: 'A "Boolean" variable can hold:', options: ['Any number', 'True/False values', 'Long strings of text', 'Decimal numbers only'], correctAnswer: 1 },
+          { id: 'cs-alg-m8', type: 'mcq', question: 'Which sorting algorithm is often considered simple but inefficient for large lists?', options: ['Merge Sort', 'Bubble Sort', 'Quick Sort', 'Heap Sort'], correctAnswer: 1 },
+          { id: 'cs-alg-m9', type: 'mcq', question: 'A loop that continues as long as a condition is true is a:', options: ['For loop', 'While loop', 'If statement', 'Switch statement'], correctAnswer: 1 },
+          { id: 'cs-alg-m10', type: 'mcq', question: 'What is "Validation" in computing?', options: ['Checking if data is correct', 'Checking if data is reasonable and sensible', 'Encrypting data', 'Formatting a disk'], correctAnswer: 1 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'ide',
+    section: '§4.4',
     title: 'Languages, Translators & IDE',
     description: 'High/low-level languages, assembler, compiler, interpreter, IDE features',
     timeline: [

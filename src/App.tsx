@@ -292,13 +292,13 @@ export default function App() {
                                <span key={kw} className="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-blue-500/10 text-blue-400 rounded-md md:rounded-lg text-[9px] md:text-[10px] font-black uppercase tracking-widest border border-blue-500/20">{kw}</span>
                             ))}
                          </div>
-                         <h3 className="text-lg md:text-4xl font-bold md:leading-[1.2] mb-6 md:mb-12">{quizQueue[quizIndex]?.question}</h3>
-                         <div className="grid gap-2.5 md:gap-4">
+                         <h3 className="text-sm sm:text-lg md:text-4xl font-bold md:leading-[1.2] mb-4 md:mb-12">{quizQueue[quizIndex]?.question}</h3>
+                         <div className="grid gap-2 md:gap-4">
                             {quizQueue[quizIndex]?.type === 'mcq' && quizQueue[quizIndex]?.options?.map((opt, i) => {
                                const isCorrect = i === quizQueue[quizIndex].correctAnswer;
                                return (
-                                 <button key={i} disabled={showAnswer} onClick={() => handleQuizAnswer(isCorrect, quizQueue[quizIndex].id)} className={`p-4 md:p-8 rounded-xl md:rounded-3xl border-2 text-left transition-all flex items-center justify-between font-bold text-sm md:text-xl ${showAnswer ? (isCorrect ? `border-${theme.primary} bg-${theme.primary}/10 text-${theme.primary}` : 'border-slate-800 bg-slate-900 text-slate-600') : `border-slate-800/50 hover:border-${theme.primary} hover:bg-slate-900 hover:scale-[1.01]`}`}>
-                                   <span className="flex-1 pr-3">{opt}</span> {showAnswer && isCorrect && <CheckCircle2 size={16} className={`text-${theme.primary} shrink-0 md:w-6 md:h-6`} />}
+                                 <button key={i} disabled={showAnswer} onClick={() => handleQuizAnswer(isCorrect, quizQueue[quizIndex].id)} className={`p-2 sm:p-3 md:p-8 rounded-xl md:rounded-3xl border-2 text-left transition-all flex items-center justify-between font-bold text-[9px] sm:text-xs md:text-xl ${showAnswer ? (isCorrect ? `border-${theme.primary} bg-${theme.primary}/10 text-${theme.primary}` : 'border-slate-800 bg-slate-900 text-slate-600') : `border-slate-800/50 hover:border-${theme.primary} hover:bg-slate-900 hover:scale-[1.01]`}`}>
+                                   <span className="flex-1 pr-2">{opt}</span> {showAnswer && isCorrect && <CheckCircle2 size={12} className={`text-${theme.primary} shrink-0 md:w-6 md:h-6`} />}
                                  </button>
                                )
                             })}
@@ -307,7 +307,7 @@ export default function App() {
                                   {!showAnswer ? (
                                     <div className="space-y-3">
                                        <textarea 
-                                         className="w-full bg-slate-900/50 border border-slate-800 rounded-xl md:rounded-3xl p-4 md:p-8 text-sm md:text-xl min-h-[120px] md:min-h-[200px] focus:outline-none focus:border-blue-500/50" 
+                                         className="w-full bg-slate-900/50 border border-slate-800 rounded-xl md:rounded-3xl p-3 md:p-8 text-xs md:text-xl min-h-[100px] md:min-h-[200px] focus:outline-none focus:border-blue-500/50" 
                                          placeholder="Type your answer here..." 
                                        />
                                        <button onClick={() => setShowAnswer(true)} className={`w-full py-3.5 md:py-6 bg-slate-50 text-slate-950 font-black uppercase tracking-widest rounded-xl md:rounded-3xl shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:bg-white text-xs md:text-base`}>Evaluate Answer</button>
