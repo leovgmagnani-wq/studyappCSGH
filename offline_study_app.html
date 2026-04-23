@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura IGCSE Study - Offline Edition</title>
+    <style>
+        :root {
+            --bg: #f9f9f9;
+            --text: #1a1a1a;
+            --primary: #111;
+            --secondary: #666;
+            --border: #eeeeee;
+            --white: #ffffff;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); border-color: #ccc; }
+        .hidden { display: none; }
+        button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button.secondary { background: var(--secondary); margin-top: 5px; }
+        .timeline { border-left: 2px solid var(--border); margin: 20px 0; padding-left: 20px; }
+        .timeline-item { margin-bottom: 20px; position: relative; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        .q-type { font-size: 10px; text-transform: uppercase; color: var(--secondary); font-weight: bold; }
+        .option {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .option.correct { background: #e6ffed; border-color: #28a745; }
+        .option.wrong { background: #ffeef0; border-color: #d73a49; }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <!-- Views will be rendered here -->
+    </div>
+
+    <script>
+        const CONTENT = {
+            history: {
+                title: "History (Edexcel)",
+                topics: [
+                    {
+                        id: "ger", title: "Germany 1918-45",
+                        timeline: [
+                            { t: "1918", e: "WWI Ends" },
+                            { t: "1919", e: "Treaty of Versailles" },
+                            { t: "1923", e: "Hyperinflation" },
+                            { t: "1929", e: "Wall Street Crash" },
+                            { t: "1933", e: "Hitler Chancellor" }
+                        ],
+                        questions: [
+                            { q: "Which article of the Weimar Constitution allowed the President to rule by decree?", o: ["Article 1", "Article 48", "Article 231"], a: 1, type: "mcq" },
+                            { q: "What was the Night of the Long Knives?", o: ["A dinner party", "Purge of the SA", "A peaceful protest"], a: 1, type: "mcq" }
+                        ]
+                    },
+                    {
+                        id: "usa", title: "USA 1918-41",
+                        timeline: [
+                            { t: "1929", e: "Wall Street Crash" },
+                            { t: "1933", e: "New Deal begins" }
+                        ],
+                        questions: [
+                            { q: "What were Roosevelt's agencies called?", o: ["Number Agencies", "Alphabet Agencies", "Letter Groups"], a: 1, type: "mcq" }
+                        ]
+                    }
+                ]
+            },
+            geography: {
+                title: "Geography (CIE)",
+                topics: [
+                    {
+                        id: "pop", title: "Population",
+                        questions: [
+                            { q: "What is Natural Increase?", o: ["Births + Deaths", "Births - Deaths"], a: 1, type: "mcq" }
+                        ]
+                    },
+                    {
+                        id: "tect", title: "Tectonics",
+                        questions: [
+                            { q: "Where is the Mid-Atlantic Ridge?", o: ["Conservative boundary", "Divergent boundary"], a: 1, type: "mcq" }
+                        ]
+                    }
+                ]
+            },
+            cs: {
+                title: "Computer Science (CIE 0478)",
+                topics: [
+                    {
+                        id: "cs1", title: "Data Representation",
+                        questions: [
+                            { q: "Binary 1010 in decimal is?", o: ["8", "10", "12"], a: 1, type: "mcq" }
+                        ]
+                    },
+                    {
+                        id: "cs2", title: "Automated Systems",
+                        questions: [
+                            { q: "What compares sensor data in an automated system?", o: ["Capacitor", "Microprocessor", "Actuator"], a: 1, type: "mcq" }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        let state = { view: 'home', subject: null, topic: null, qIdx: 0, score: 0 };
+
+        function render() {
+            const app = document.getElementById('app');
+            app.innerHTML = '';
+
+            if (state.view === 'home') {
+                app.innerHTML = `
+                    <header><h1>Aura Study</h1><p>Offline IGCSE Suite</p></header>
+                    <div class="card" onclick="goSubject('history')">History</div>
+                    <div class="card" onclick="goSubject('geography')">Geography</div>
+                    <div class="card" onclick="goSubject('cs')">Computer Science</div>
+                `;
+            } else if (state.view === 'subject') {
+                const sub = CONTENT[state.subject];
+                let html = `<button class="secondary" onclick="goHome()">Back</button><h2>${sub.title}</h2>`;
+                sub.topics.forEach((t, i) => {
+                    html += `<div class="card" onclick="goTopic(${i})">${t.title}</div>`;
+                });
+                app.innerHTML = html;
+            } else if (state.view === 'topic') {
+                const topic = CONTENT[state.subject].topics[state.topic];
+                app.innerHTML = `
+                    <button class="secondary" onclick="goSubject('${state.subject}')">Back</button>
+                    <h2>${topic.title}</h2>
+                    <button onclick="startQuiz()">Start Practice</button>
+                `;
+            } else if (state.view === 'quiz') {
+                const topic = CONTENT[state.subject].topics[state.topic];
+                const q = topic.questions[state.qIdx];
+                if (!q) {
+                    app.innerHTML = `<h2>Finished!</h2><p>Score: ${state.score}</p><button onclick="goHome()">Home</button>`;
+                    return;
+                }
+                let html = `<h3>Question ${state.qIdx + 1}</h3><p>${q.q}</p>`;
+                q.o.forEach((o, i) => {
+                    html += `<div class="option" onclick="check(${i})">${o}</div>`;
+                });
+                app.innerHTML = html;
+            }
+        }
+
+        function goHome() { state.view = 'home'; render(); }
+        function goSubject(s) { state.view = 'subject'; state.subject = s; render(); }
+        function goTopic(i) { state.view = 'topic'; state.topic = i; render(); }
+        function startQuiz() { state.view = 'quiz'; state.qIdx = 0; state.score = 0; render(); }
+        function check(i) {
+            const topic = CONTENT[state.subject].topics[state.topic];
+            if (i === topic.questions[state.qIdx].a) state.score++;
+            state.qIdx++;
+            render();
+        }
+
+        render();
+    </script>
+</body>
+</html>
