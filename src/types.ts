@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type SubjectId = 'history' | 'geography' | 'computer_science';
+export type SubjectId = 'history' | 'geography' | 'computerscience';
 
 export interface TimelineEvent {
   year: string;

@@ -13,7 +13,7 @@ import {
   BookText,
   RotateCw
 } from 'lucide-react';
-import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, CS_TOPICS } from './data/content';
+import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, COMPUTERSCIENCE_TOPICS } from './data/content';
 import { SubjectId, Topic, Subtopic, UserProgress, Question, MemoryData, TimelineEvent } from './types';
 
 // SRS Algorithm
@@ -88,7 +88,7 @@ export default function App() {
     switch (activeSubject) {
       case 'history': return HISTORY_TOPICS;
       case 'geography': return GEOGRAPHY_TOPICS;
-      case 'computer_science': return CS_TOPICS;
+      case 'computerscience': return COMPUTERSCIENCE_TOPICS;
       default: return [];
     }
   };
@@ -116,7 +116,7 @@ export default function App() {
   const startSmartReview = () => {
     const now = Date.now();
     const allQuestions: Question[] = [];
-    [...HISTORY_TOPICS, ...GEOGRAPHY_TOPICS, ...CS_TOPICS].forEach(t => 
+    [...HISTORY_TOPICS, ...GEOGRAPHY_TOPICS, ...COMPUTERSCIENCE_TOPICS].forEach(t => 
       t.subtopics.forEach(s => allQuestions.push(...s.questions))
     );
 
@@ -164,7 +164,7 @@ export default function App() {
   const subjectThemes: Record<SubjectId, { primary: string; accent: string; bg: string; font?: string }> = {
     history: { primary: 'amber-500', accent: 'amber-400', bg: 'slate-950', font: 'font-sans' },
     geography: { primary: 'emerald-500', accent: 'emerald-400', bg: 'slate-950', font: 'font-sans' },
-    computer_science: { primary: 'blue-500', accent: 'blue-400', bg: 'slate-950', font: 'font-sora' }
+    computerscience: { primary: 'blue-500', accent: 'blue-400', bg: 'slate-950', font: 'font-sora' }
   };
 
   const theme = subjectThemes[activeSubject];
@@ -362,9 +362,9 @@ export default function App() {
 
         <nav className="w-full md:w-20 border-t md:border-t-0 md:border-r border-slate-800 bg-slate-950 flex flex-row md:flex-col items-center justify-center md:justify-start py-4 md:py-8 gap-4 xs:gap-8">
            {[
-             { id: 'history', icon: History, label: 'History' },
-             { id: 'geography', icon: Globe, label: 'Geo' },
-             { id: 'computer_science', icon: Cpu, label: 'CS' }
+             { id: 'history', icon: History, label: 'history' },
+             { id: 'geography', icon: Globe, label: 'geography' },
+             { id: 'computerscience', icon: Cpu, label: 'computerscience' }
            ].map(s => (
              <button key={s.id} onClick={() => handleSubjectSelect(s.id as SubjectId)} className={`group relative w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-[1.25rem] flex items-center justify-center transition-all ${activeSubject === s.id ? `bg-${theme.primary} text-slate-950 shadow-[0_0_20px_rgba(245,158,11,0.3)]` : 'text-slate-600 hover:text-slate-300 hover:bg-slate-900'}`}>
                <s.icon className="w-6 h-6 md:w-7 md:h-7" />
