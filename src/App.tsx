@@ -298,7 +298,7 @@ export default function App() {
                          <h3 className="text-sm sm:text-lg md:text-4xl font-bold md:leading-[1.2] mb-4 md:mb-12">{quizQueue[quizIndex]?.question}</h3>
                          <div className="grid gap-6 md:gap-12 mb-8 md:mb-16">
                             {quizQueue[quizIndex]?.type === 'formula' && (
-                               <div className="perspective-1000 w-full h-[300px] md:h-[500px] cursor-pointer" onClick={() => setShowAnswer(!showAnswer)}>
+                               <div className="perspective-1000 w-full h-[450px] md:h-[500px] cursor-pointer" onClick={() => setShowAnswer(!showAnswer)}>
                                   <motion.div 
                                     className="relative w-full h-full transition-all duration-700 preserve-3d"
                                     initial={false}
@@ -316,9 +316,9 @@ export default function App() {
                                      </div>
 
                                      {/* Back */}
-                                     <div className="absolute inset-0 backface-hidden glass flex flex-col md:flex-row items-center justify-around p-4 md:p-12 rounded-3xl border-2 border-rose-500/30 rotate-y-180 bg-slate-900/40 translate-z-1">
+                                     <div className="absolute inset-0 backface-hidden glass flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 p-4 md:p-12 rounded-3xl border-2 border-rose-500/30 rotate-y-180 bg-slate-900/40 translate-z-1 overflow-hidden">
                                         {/* Triangle UI */}
-                                        <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 flex items-center justify-center">
+                                        <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 flex items-center justify-center shrink-0">
                                            <svg viewBox="0 0 100 100" className={`w-full h-full text-${theme.primary}`}>
                                               {/* Triangle Framework */}
                                               <path d="M50 5 L95 90 L5 90 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -326,29 +326,31 @@ export default function App() {
                                               <line x1="50" y1="54" x2="50" y2="90" stroke="currentColor" strokeWidth="2.5" />
                                               
                                               {/* Symbols centered in SVG units */}
-                                              <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                              <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                  {quizQueue[quizIndex].formulaData?.triangle.top}
                                               </text>
-                                              <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                              <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                  {quizQueue[quizIndex].formulaData?.triangle.left}
                                               </text>
-                                              <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                              <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                  {quizQueue[quizIndex].formulaData?.triangle.right}
                                               </text>
                                            </svg>
                                         </div>
 
                                         {/* Symbol Legend */}
-                                        <div className="flex flex-col gap-2 md:gap-5 w-full md:w-auto mt-6 md:mt-0 items-center md:items-start text-center md:text-left">
-                                           {quizQueue[quizIndex].formulaData?.symbols.map((s, idx) => (
-                                              <div key={idx} className="flex items-center gap-3 md:gap-4 group">
-                                                 <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center font-black text-${theme.primary} bg-slate-950 border border-slate-700 text-sm md:text-xl shadow-lg`}>{s.symbol}</div>
-                                                 <div>
-                                                    <p className="text-[11px] md:text-lg font-bold text-slate-100">{s.name}</p>
-                                                    <p className={`text-[8px] md:text-xs font-black uppercase tracking-widest text-${theme.primary}`}>{s.unit}</p>
+                                        <div className="flex flex-col gap-2 md:gap-5 w-full md:w-auto items-center md:items-start text-center md:text-left">
+                                           <div className="flex flex-col sm:flex-row md:flex-col gap-2 md:gap-5 w-full justify-center">
+                                              {quizQueue[quizIndex].formulaData?.symbols.map((s, idx) => (
+                                                 <div key={idx} className="flex items-center gap-3 md:gap-4 group">
+                                                    <div className={`w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center font-black text-${theme.primary} bg-slate-950 border border-slate-700 text-xs md:text-xl shadow-lg shrink-0`}>{s.symbol}</div>
+                                                    <div className="text-left">
+                                                       <p className="text-[10px] md:text-lg font-bold text-slate-100 leading-tight">{s.name}</p>
+                                                       <p className={`text-[8px] md:text-xs font-black uppercase tracking-widest text-${theme.primary}`}>{s.unit}</p>
+                                                    </div>
                                                  </div>
-                                              </div>
-                                           ))}
+                                              ))}
+                                           </div>
                                            <div className="grid grid-cols-2 gap-2 mt-4 md:mt-6">
                                               <button 
                                                 onClick={(e) => { e.stopPropagation(); handleSelfGrade(1, quizQueue[quizIndex].id); }}
