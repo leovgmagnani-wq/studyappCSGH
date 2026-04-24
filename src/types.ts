@@ -18,11 +18,12 @@ export interface Question {
   type: 'mcq' | 'structured' | 'exam_style_6' | 'exam_style_8' | 'exam_style_16' | 'formula';
   question: string;
   formulaData?: {
-    triangle: {
+    triangle?: {
       top: string;
       left: string;
       right: string;
     };
+    rawFormula?: string;
     symbols: {
       symbol: string;
       name: string;

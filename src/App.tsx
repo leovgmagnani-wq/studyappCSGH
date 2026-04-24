@@ -317,26 +317,36 @@ export default function App() {
 
                                      {/* Back */}
                                      <div className="absolute inset-0 backface-hidden glass flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 p-4 md:p-12 rounded-3xl border-2 border-rose-500/30 rotate-y-180 bg-slate-900/40 translate-z-1 overflow-hidden">
-                                        {/* Triangle UI */}
-                                        <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 flex items-center justify-center shrink-0">
-                                           <svg viewBox="0 0 100 100" className={`w-full h-full text-${theme.primary}`}>
-                                              {/* Triangle Framework */}
-                                              <path d="M50 5 L95 90 L5 90 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                              <line x1="24" y1="54" x2="76" y2="54" stroke="currentColor" strokeWidth="2.5" />
-                                              <line x1="50" y1="54" x2="50" y2="90" stroke="currentColor" strokeWidth="2.5" />
-                                              
-                                              {/* Symbols centered in SVG units */}
-                                              <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
-                                                 {quizQueue[quizIndex].formulaData?.triangle.top}
-                                              </text>
-                                              <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
-                                                 {quizQueue[quizIndex].formulaData?.triangle.left}
-                                              </text>
-                                              <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
-                                                 {quizQueue[quizIndex].formulaData?.triangle.right}
-                                              </text>
-                                           </svg>
-                                        </div>
+                                        {/* Formula Rendering */}
+                                        {quizQueue[quizIndex].formulaData?.triangle ? (
+                                           <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 flex items-center justify-center shrink-0">
+                                              <svg viewBox="0 0 100 100" className={`w-full h-full text-${theme.primary}`}>
+                                                 {/* Triangle Framework */}
+                                                 <path d="M50 5 L95 90 L5 90 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                 <line x1="24" y1="54" x2="76" y2="54" stroke="currentColor" strokeWidth="2.5" />
+                                                 <line x1="50" y1="54" x2="50" y2="90" stroke="currentColor" strokeWidth="2.5" />
+                                                 
+                                                 {/* Symbols centered in SVG units */}
+                                                 <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                    {quizQueue[quizIndex].formulaData?.triangle.top}
+                                                 </text>
+                                                 <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                    {quizQueue[quizIndex].formulaData?.triangle.left}
+                                                 </text>
+                                                 <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                    {quizQueue[quizIndex].formulaData?.triangle.right}
+                                                 </text>
+                                              </svg>
+                                           </div>
+                                        ) : quizQueue[quizIndex].formulaData?.rawFormula && (
+                                           <div className="flex-1 flex flex-col items-center justify-center px-4 w-full md:w-auto">
+                                              <div className={`p-4 md:p-12 bg-slate-950/50 rounded-2xl md:rounded-[2rem] border border-${theme.primary}/20 shadow-2xl mb-4 w-full text-center`}>
+                                                 <p className={`text-xl md:text-5xl font-black text-white italic tracking-tighter leading-tight`}>
+                                                    {quizQueue[quizIndex].formulaData?.rawFormula}
+                                                 </p>
+                                              </div>
+                                           </div>
+                                        )}
 
                                         {/* Symbol Legend */}
                                         <div className="flex flex-col gap-2 md:gap-5 w-full md:w-auto items-center md:items-start text-center md:text-left">

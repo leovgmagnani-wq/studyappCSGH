@@ -2495,6 +2495,188 @@ export const SCIENCE_TOPICS: Topic[] = [
                 { symbol: 'λ', name: 'Wavelength', unit: 'm' }
               ]
             }
+          },
+          {
+            id: 'f-phys-accel',
+            type: 'formula',
+            question: "What's the equation for acceleration?",
+            formulaData: {
+              rawFormula: 'a = (v - u) / t',
+              symbols: [
+                { symbol: 'a', name: 'Acceleration', unit: 'm/s²' },
+                { symbol: 'v', name: 'Final velocity', unit: 'm/s' },
+                { symbol: 'u', name: 'Initial velocity', unit: 'm/s' },
+                { symbol: 't', name: 'Time taken', unit: 's' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-hooke',
+            type: 'formula',
+            question: "What's the equation for Hooke's Law?",
+            formulaData: {
+              triangle: { top: 'F', left: 'k', right: 'x' },
+              symbols: [
+                { symbol: 'F', name: 'Force', unit: 'N' },
+                { symbol: 'k', name: 'Spring constant', unit: 'N/m' },
+                { symbol: 'x', name: 'Extension', unit: 'm' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-liq-press',
+            type: 'formula',
+            question: "What's the equation for pressure in a liquid?",
+            formulaData: {
+              rawFormula: 'p = h * ρ * g',
+              symbols: [
+                { symbol: 'p', name: 'Pressure', unit: 'Pa' },
+                { symbol: 'h', name: 'Depth', unit: 'm' },
+                { symbol: 'ρ', name: 'Density', unit: 'kg/m³' },
+                { symbol: 'g', name: 'Gravitational field strength', unit: '10 N/kg' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-ke',
+            type: 'formula',
+            question: "What's the equation for Kinetic Energy?",
+            formulaData: {
+              rawFormula: 'KE = ½ * m * v²',
+              symbols: [
+                { symbol: 'KE', name: 'Kinetic Energy', unit: 'J' },
+                { symbol: 'm', name: 'Mass', unit: 'kg' },
+                { symbol: 'v', name: 'Speed', unit: 'm/s' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-gpe',
+            type: 'formula',
+            question: "What's the equation for Gravitational Potential Energy?",
+            formulaData: {
+              rawFormula: 'GPE = m * g * h',
+              symbols: [
+                { symbol: 'GPE', name: 'Gravitational Potential Energy', unit: 'J' },
+                { symbol: 'm', name: 'Mass', unit: 'kg' },
+                { symbol: 'g', name: 'Gravitational field strength', unit: '10 N/kg' },
+                { symbol: 'h', name: 'Height', unit: 'm' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-efficiency',
+            type: 'formula',
+            question: "What's the equation for efficiency?",
+            formulaData: {
+              rawFormula: 'Efficiency = (Useful / Total) * 100%',
+              symbols: [
+                { symbol: 'Useful', name: 'Useful energy output', unit: 'J' },
+                { symbol: 'Total', name: 'Total energy input', unit: 'J' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-boyle',
+            type: 'formula',
+            question: "What's the equation for Boyle's Law?",
+            formulaData: {
+              rawFormula: 'p₁ * V₁ = p₂ * V₂',
+              symbols: [
+                { symbol: 'p', name: 'Pressure', unit: 'Pa' },
+                { symbol: 'V', name: 'Volume', unit: 'm³' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-shc',
+            type: 'formula',
+            question: "What's the equation for Specific Heat Capacity?",
+            formulaData: {
+              rawFormula: 'Q = m * c * Δθ',
+              symbols: [
+                { symbol: 'Q', name: 'Energy transferred', unit: 'J' },
+                { symbol: 'm', name: 'Mass', unit: 'kg' },
+                { symbol: 'c', name: 'Specific heat capacity', unit: 'J/(kg°C)' },
+                { symbol: 'Δθ', name: 'Temperature change', unit: '°C' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-refractive',
+            type: 'formula',
+            question: "What's Snell's Law for refractive index?",
+            formulaData: {
+              rawFormula: 'n = sin i / sin r',
+              symbols: [
+                { symbol: 'n', name: 'Refractive index', unit: 'none' },
+                { symbol: 'i', name: 'Angle of incidence', unit: '°' },
+                { symbol: 'r', name: 'Angle of refraction', unit: '°' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-charge',
+            type: 'formula',
+            question: "What's the equation for electrical charge?",
+            formulaData: {
+               triangle: { top: 'Q', left: 'I', right: 't' },
+               symbols: [
+                 { symbol: 'Q', name: 'Charge', unit: 'C' },
+                 { symbol: 'I', name: 'Current', unit: 'A' },
+                 { symbol: 't', name: 'Time', unit: 's' }
+               ]
+            }
+          },
+          {
+            id: 'f-phys-res-series',
+            type: 'formula',
+            question: "What's the equation for resistors in series?",
+            formulaData: {
+              rawFormula: 'Rₜₒₜₐₗ = R₁ + R₂ + ...',
+              symbols: [
+                { symbol: 'R', name: 'Resistance', unit: 'Ω' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-res-parallel',
+            type: 'formula',
+            question: "What's the equation for 2 resistors in parallel?",
+            formulaData: {
+              rawFormula: 'Rₜₒₜₐₗ = (R₁ * R₂) / (R₁ + R₂)',
+              symbols: [
+                { symbol: 'R', name: 'Resistance', unit: 'Ω' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-transformer-v',
+            type: 'formula',
+            question: "What's the transformer voltage equation?",
+            formulaData: {
+              rawFormula: 'Vₚ / Vₛ = Nₚ / Nₛ',
+              symbols: [
+                { symbol: 'Vp', name: 'Primary voltage', unit: 'V' },
+                { symbol: 'Vs', name: 'Secondary voltage', unit: 'V' },
+                { symbol: 'Np', name: 'Primary turns', unit: 'none' },
+                { symbol: 'Ns', name: 'Secondary turns', unit: 'none' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-transformer-p',
+            type: 'formula',
+            question: "What's the equation for 100% efficient transformer?",
+            formulaData: {
+               rawFormula: 'Iₚ * Vₚ = Iₛ * Vₛ',
+               symbols: [
+                 { symbol: 'Ip', name: 'Primary current', unit: 'A' },
+                 { symbol: 'Vp', name: 'Primary voltage', unit: 'V' },
+                 { symbol: 'Is', name: 'Secondary current', unit: 'A' },
+                 { symbol: 'Vs', name: 'Secondary voltage', unit: 'V' }
+               ]
+            }
           }
         ]
       }
