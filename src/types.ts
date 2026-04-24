@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type SubjectId = 'history' | 'geography' | 'computerscience';
+export type SubjectId = 'history' | 'geography' | 'computerscience' | 'science';
 
 export interface TimelineEvent {
   year: string;
@@ -15,8 +15,20 @@ export interface TimelineEvent {
 
 export interface Question {
   id: string;
-  type: 'mcq' | 'structured' | 'exam_style_6' | 'exam_style_8' | 'exam_style_16';
+  type: 'mcq' | 'structured' | 'exam_style_6' | 'exam_style_8' | 'exam_style_16' | 'formula';
   question: string;
+  formulaData?: {
+    triangle: {
+      top: string;
+      left: string;
+      right: string;
+    };
+    symbols: {
+      symbol: string;
+      name: string;
+      unit: string;
+    }[];
+  };
   options?: string[];
   correctAnswer?: number | string;
   guidelines?: string[];

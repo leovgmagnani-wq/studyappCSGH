@@ -6,6 +6,7 @@ import {
   Globe, 
   Cpu, 
   ChevronRight, 
+  ChevronLeft,
   ArrowLeft, 
   CheckCircle2, 
   RotateCcw,
@@ -13,7 +14,7 @@ import {
   BookText,
   RotateCw
 } from 'lucide-react';
-import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, COMPUTERSCIENCE_TOPICS } from './data/content';
+import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, COMPUTERSCIENCE_TOPICS, SCIENCE_TOPICS } from './data/content';
 import { SubjectId, Topic, Subtopic, UserProgress, Question, MemoryData, TimelineEvent } from './types';
 
 // SRS Algorithm
@@ -110,6 +111,7 @@ export default function App() {
       case 'history': return HISTORY_TOPICS;
       case 'geography': return GEOGRAPHY_TOPICS;
       case 'computerscience': return COMPUTERSCIENCE_TOPICS;
+      case 'science': return SCIENCE_TOPICS;
       default: return [];
     }
   };
@@ -138,13 +140,13 @@ export default function App() {
   const startSmartReview = () => {
     const now = Date.now();
     const allQuestions: Question[] = [];
-    [...HISTORY_TOPICS, ...GEOGRAPHY_TOPICS, ...COMPUTERSCIENCE_TOPICS].forEach(t => 
+    [...HISTORY_TOPICS, ...GEOGRAPHY_TOPICS, ...COMPUTERSCIENCE_TOPICS, ...SCIENCE_TOPICS].forEach(t => 
       t.subtopics.forEach(s => allQuestions.push(...s.questions))
     );
 
     const due = allQuestions.filter(q => {
       const mem = userProgress.srs[q.id];
-      return q.type === 'mcq' && (!mem || mem.nextReview <= now);
+      return (q.type === 'mcq' || q.type === 'formula') && (!mem || mem.nextReview <= now);
     });
 
     if (due.length === 0) {
@@ -186,7 +188,8 @@ export default function App() {
   const subjectThemes: Record<SubjectId, { primary: string; accent: string; bg: string; font?: string }> = {
     history: { primary: 'amber-500', accent: 'amber-400', bg: 'slate-950', font: 'font-sans' },
     geography: { primary: 'emerald-500', accent: 'emerald-400', bg: 'slate-950', font: 'font-sans' },
-    computerscience: { primary: 'blue-500', accent: 'blue-400', bg: 'slate-950', font: 'font-sora' }
+    computerscience: { primary: 'blue-500', accent: 'blue-400', bg: 'slate-950', font: 'font-sora' },
+    science: { primary: 'rose-500', accent: 'rose-400', bg: 'slate-950', font: 'font-sans' }
   };
 
   const theme = subjectThemes[activeSubject];
@@ -293,7 +296,78 @@ export default function App() {
                             ))}
                          </div>
                          <h3 className="text-sm sm:text-lg md:text-4xl font-bold md:leading-[1.2] mb-4 md:mb-12">{quizQueue[quizIndex]?.question}</h3>
-                         <div className="grid gap-2 md:gap-4">
+                         <div className="grid gap-6 md:gap-12 mb-8 md:mb-16">
+                            {quizQueue[quizIndex]?.type === 'formula' && (
+                               <div className="perspective-1000 w-full h-[300px] md:h-[500px] cursor-pointer" onClick={() => setShowAnswer(!showAnswer)}>
+                                  <motion.div 
+                                    className="relative w-full h-full transition-all duration-700 preserve-3d"
+                                    initial={false}
+                                    animate={{ rotateY: showAnswer ? 180 : 0 }}
+                                  >
+                                     {/* Front */}
+                                     <div className="absolute inset-0 backface-hidden glass flex flex-col items-center justify-center p-4 md:p-8 rounded-3xl border-2 border-slate-700/50">
+                                        <div className={`w-12 h-12 md:w-24 md:h-24 bg-${theme.primary}/10 rounded-full flex items-center justify-center mb-4 md:mb-6`}>
+                                           <RotateCw className={`text-${theme.primary} w-6 h-6 md:w-10 md:h-10`} />
+                                        </div>
+                                        <div className="text-center">
+                                           <p className="text-slate-500 font-black uppercase tracking-[0.2em] text-[8px] md:text-xs mb-2">Tap to Reveal Formula</p>
+                                           <p className="text-lg md:text-3xl font-bold italic text-slate-300">"SYSTEM READY"</p>
+                                        </div>
+                                     </div>
+
+                                     {/* Back */}
+                                     <div className="absolute inset-0 backface-hidden glass flex flex-col md:flex-row items-center justify-around p-4 md:p-12 rounded-3xl border-2 border-rose-500/30 rotate-y-180 bg-slate-900/40 translate-z-1">
+                                        {/* Triangle UI */}
+                                        <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 flex items-center justify-center">
+                                           <svg viewBox="0 0 100 100" className={`w-full h-full text-${theme.primary}`}>
+                                              {/* Triangle Framework */}
+                                              <path d="M50 5 L95 90 L5 90 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                              <line x1="24" y1="54" x2="76" y2="54" stroke="currentColor" strokeWidth="2.5" />
+                                              <line x1="50" y1="54" x2="50" y2="90" stroke="currentColor" strokeWidth="2.5" />
+                                              
+                                              {/* Symbols centered in SVG units */}
+                                              <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 {quizQueue[quizIndex].formulaData?.triangle.top}
+                                              </text>
+                                              <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 {quizQueue[quizIndex].formulaData?.triangle.left}
+                                              </text>
+                                              <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" className="fill-white font-black text-[18px] select-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 {quizQueue[quizIndex].formulaData?.triangle.right}
+                                              </text>
+                                           </svg>
+                                        </div>
+
+                                        {/* Symbol Legend */}
+                                        <div className="flex flex-col gap-2 md:gap-5 w-full md:w-auto mt-6 md:mt-0 items-center md:items-start text-center md:text-left">
+                                           {quizQueue[quizIndex].formulaData?.symbols.map((s, idx) => (
+                                              <div key={idx} className="flex items-center gap-3 md:gap-4 group">
+                                                 <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center font-black text-${theme.primary} bg-slate-950 border border-slate-700 text-sm md:text-xl shadow-lg`}>{s.symbol}</div>
+                                                 <div>
+                                                    <p className="text-[11px] md:text-lg font-bold text-slate-100">{s.name}</p>
+                                                    <p className={`text-[8px] md:text-xs font-black uppercase tracking-widest text-${theme.primary}`}>{s.unit}</p>
+                                                 </div>
+                                              </div>
+                                           ))}
+                                           <div className="grid grid-cols-2 gap-2 mt-4 md:mt-6">
+                                              <button 
+                                                onClick={(e) => { e.stopPropagation(); handleSelfGrade(1, quizQueue[quizIndex].id); }}
+                                                className="py-2 px-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:bg-emerald-500/30"
+                                              >
+                                                Mastered
+                                              </button>
+                                              <button 
+                                                onClick={(e) => { e.stopPropagation(); handleSelfGrade(0, quizQueue[quizIndex].id); }}
+                                                className="py-2 px-4 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-lg text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:bg-rose-500/30"
+                                              >
+                                                Retry
+                                              </button>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </motion.div>
+                               </div>
+                            )}
                             {quizQueue[quizIndex]?.type === 'mcq' && quizQueue[quizIndex]?.options?.map((opt, i) => {
                                const isCorrect = i === quizQueue[quizIndex].correctAnswer;
                                return (
@@ -335,9 +409,35 @@ export default function App() {
                                   )}
                                </div>
                             )}
-                         </div>
-                      </div>
-                      {(quizQueue[quizIndex]?.type === 'mcq' && showAnswer) && (
+                            <div className="flex items-center justify-between mt-12 pt-8 border-t border-white/5">
+                               <button 
+                                  disabled={quizIndex === 0}
+                                  onClick={() => { setQuizIndex(prev => prev - 1); setShowAnswer(false); }}
+                                  className={`flex items-center gap-3 px-6 py-3 rounded-2xl transition-all ${quizIndex === 0 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-slate-400 hover:text-white hover:bg-white/5 group'}`}
+                               >
+                                  <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Back</span>
+                               </button>
+
+                               <div className="hidden sm:flex gap-1.5">
+                                  {quizQueue.slice(0, 15).map((_, i) => (
+                                     <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${i === quizIndex ? `w-8 bg-${theme.primary}` : 'w-2 bg-slate-800 hover:bg-slate-700'}`} />
+                                  ))}
+                                  {quizQueue.length > 15 && <span className="text-slate-700 text-[8px] self-center">...</span>}
+                               </div>
+
+                               <button 
+                                  disabled={quizIndex === quizQueue.length - 1}
+                                  onClick={() => { setQuizIndex(prev => prev + 1); setShowAnswer(false); }}
+                                  className={`flex items-center gap-3 px-6 py-3 rounded-2xl transition-all ${quizIndex === quizQueue.length - 1 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-slate-400 hover:text-white hover:bg-white/5 group'}`}
+                               >
+                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Skip</span>
+                                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                             </div>
+                          </div>
+                       </div>
+                      {((quizQueue[quizIndex]?.type === 'mcq' || quizQueue[quizIndex]?.type === 'formula') && showAnswer) && (
                          <div className="mt-6 md:mt-12 flex gap-4">
                            <button onClick={() => { setShowAnswer(false); setQuizIndex(prev => prev + 1); }} className={`flex-1 py-5 md:py-8 bg-${theme.primary} text-slate-950 font-black uppercase tracking-[0.2em] rounded-xl md:rounded-3xl shadow-[0_25px_50px_rgba(59,130,246,0.3)] text-center text-xs md:text-base`}>Continue Integration</button>
                          </div>
@@ -386,7 +486,8 @@ export default function App() {
            {[
              { id: 'history', icon: History, label: 'history' },
              { id: 'geography', icon: Globe, label: 'geography' },
-             { id: 'computerscience', icon: Cpu, label: 'computerscience' }
+             { id: 'computerscience', icon: Cpu, label: 'computerscience' },
+             { id: 'science', icon: BookOpen, label: 'science' }
            ].map(s => (
              <button key={s.id} onClick={() => handleSubjectSelect(s.id as SubjectId)} className={`group relative w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-[1.25rem] flex items-center justify-center transition-all ${activeSubject === s.id ? `bg-${theme.primary} text-slate-950 shadow-[0_0_20px_rgba(245,158,11,0.3)]` : 'text-slate-600 hover:text-slate-300 hover:bg-slate-900'}`}>
                <s.icon className="w-6 h-6 md:w-7 md:h-7" />

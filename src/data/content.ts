@@ -179,109 +179,88 @@ export const HISTORY_TOPICS: Topic[] = [
   {
     id: 'superpowers',
     title: 'Superpower Relations 1943-72',
+    description: 'The Cold War from WWII conferences through to Détente and SALT I.',
     timeline: [
-      { year: '1945', event: 'Potsdam Conference', description: 'Tensions rise over Poland and Germany.', topicId: 'sup-1', significance: 'The breakdown of the Grand Alliance.' },
-      { year: '1947', event: 'Truman Doctrine', description: 'USA pledges to contain communism.', topicId: 'sup-1', significance: 'The formal start of the policy of containment.' },
-      { year: '1948', event: 'Berlin Blockade', description: 'Stalin cuts off land routes to West Berlin.', topicId: 'sup-1', significance: 'First open confrontation of the Cold War.' },
-      { year: '1949', event: 'NATO Formed', description: 'First Western military alliance established.', topicId: 'sup-1', significance: 'Formalized the military division of Europe.' },
-      { year: '1955', event: 'Warsaw Pact', description: 'Soviet military alliance created.', topicId: 'sup-1', significance: 'Counter-weight to NATO; solidified Eastern Bloc.' },
-      { year: '1961', event: 'Berlin Wall built', description: 'East Germany seals the border in Berlin.', topicId: 'sup-2', significance: 'Became symbol of the Cold War and the "Iron Curtain".' },
-      { year: '1962', event: 'Cuban Missile Crisis', description: 'Nuclear standoff over Soviet missiles.', topicId: 'sup-2', significance: 'Closest the world came to nuclear war.' },
-      { year: '1968', event: 'Prague Spring', description: 'Soviets crush reform movement in Czechoslovakia.', topicId: 'sup-2', significance: 'Led to the Brezhnev Doctrine.' }
+      { year: '1943', event: 'Tehran Conference', description: 'The "Big Three" agree on a second front in Europe.', topicId: 'sup-origins', significance: 'First high-level meeting; defined the strategy against Nazi Germany.' },
+      { year: '1945', event: 'Yalta & Potsdam', description: 'Conferences to divide Germany and Berlin.', topicId: 'sup-origins', significance: 'Emergence of deep ideological divisions and tensions over Poland.' },
+      { year: '1947', event: 'Truman Doctrine', description: 'USA pledges to "contain" communism.', topicId: 'sup-origins', significance: 'Formal end of isolationism; start of containment policy.' },
+      { year: '1948', event: 'Berlin Blockade', description: 'Stalin cuts land routes to West Berlin.', topicId: 'sup-origins', significance: 'First major confrontation; led to the Berlin Airlift.' },
+      { year: '1949', event: 'NATO & USSR A-Bomb', description: 'Western alliance formed; Soviets test atomic bomb.', topicId: 'sup-origins', significance: 'Direct military division of Europe and start of nuclear stand-off.' },
+      { year: '1950', event: 'Korean War begins', description: 'North Korea invades South Korea.', topicId: 'sup-1950s', significance: 'First proxy war of the Cold War; involved UN and China.' },
+      { year: '1955', event: 'Warsaw Pact', description: 'Soviet military alliance established.', topicId: 'sup-1950s', significance: 'Formalizing the Eastern Bloc military co-operation.' },
+      { year: '1956', event: 'Hungarian Uprising', description: 'Nagy tries to leave the Warsaw Pact; Soviets invade.', topicId: 'sup-1950s', significance: 'Demonstrated Soviet resolve to keep control of satellite states.' },
+      { year: '1961', event: 'Berlin Wall built', description: 'Soviet-backed GDR seals the border.', topicId: 'sup-crises', significance: 'Symbolized the Iron Curtain; ended the refugee "brain drain" from East to West.' },
+      { year: '1962', event: 'Cuban Missile Crisis', description: 'Secret Soviet missiles in Cuba lead to brinkmanship.', topicId: 'sup-crises', significance: 'The closest the world came to nuclear war; led to the "Hotline".' },
+      { year: '1968', event: 'Prague Spring', description: 'Dubcek attempts "Socialism with a human face".', topicId: 'sup-crises', significance: 'Resulted in the Brezhnev Doctrine (Soviets will intervene to protect communism).' },
+      { year: '1972', event: 'SALT I Treaty', description: 'First Strategic Arms Limitation Treaty signed.', topicId: 'sup-detente', significance: 'The peak of Détente; attempt to control the nuclear arms race.' }
     ],
     subtopics: [
       {
-        id: 'sup-1',
-        title: 'Origins of the Cold War (1945-49)',
+        id: 'sup-origins',
+        title: 'Reasons for Cold War & Early Developments (1943–49)',
         questions: [
-          { id: 'sup-m-1', type: 'mcq', question: 'Who were the "Big Three" at Yalta?', options: ['Stalin, Hitler, Churchill', 'Stalin, Roosevelt, Churchill', 'Stalin, Truman, Attlee', 'Lenin, Wilson, Lloyd George'], correctAnswer: 1 },
-          { id: 'sup-m-2', type: 'mcq', question: 'Which conference saw Truman inform Stalin about the atomic bomb?', options: ['Tehran', 'Yalta', 'Potsdam', 'Cairo'], correctAnswer: 2 },
-          { id: 'sup-m-3', type: 'mcq', question: 'The "Iron Curtain" speech was given by:', options: ['Truman', 'Churchill', 'Stalin', 'Kennedy'], correctAnswer: 1 },
-          { id: 'sup-m-4', type: 'mcq', question: 'What was the goal of the Marshall Plan?', options: ['Military alliance', 'Economic aid to Europe', 'Containment in Asia', 'Trade with Russia'], correctAnswer: 1 },
-          { id: 'sup-m-5', type: 'mcq', question: 'Which country’s communist takeover in 1948 shocked the West?', options: ['Poland', 'Hungary', 'Czechoslovakia', 'Romania'], correctAnswer: 2 },
-          { id: 'sup-m-6', type: 'mcq', question: 'The Berlin Blockade began in which year?', options: ['1945', '1947', '1948', '1950'], correctAnswer: 2 },
-          { id: 'sup-m-7', type: 'mcq', question: 'NATO stands for:', options: ['North Atlantic Treaty Organization', 'National American Trade Org', 'New Allied Treaty Office', 'Northern Alliance for Trade'], correctAnswer: 0 },
-          { id: 'sup-m-8', type: 'mcq', question: 'Which Soviet organization was the equivalent of the Marshall Plan?', options: ['Cominform', 'Comecon', 'Warsaw Pact', 'KGB'], correctAnswer: 1 },
-          { id: 'sup-m-9', type: 'mcq', question: 'Bizonia was the merger of which two occupation zones?', options: ['US and USSR', 'US and British', 'French and British', 'French and US'], correctAnswer: 1 },
-          { id: 'sup-m-10', type: 'mcq', question: 'What was the Allied response to the Berlin Blockade?', options: ['Nuclear strike', 'Airlift', 'Invasion', 'Sanctions'], correctAnswer: 1 },
-          { id: 'sup-v2-1', type: 'mcq', question: 'The Warsaw Pact (1955) was formed in response to:', options: ['The Marshall Plan', 'West Germany joining NATO', 'The Berlin Airlift', 'The Korean War'], correctAnswer: 1 },
-          { id: 'sup-v2-2', type: 'mcq', question: 'Which uprising in 1956 was crushed by Soviet tanks?', options: ['Hungarian Uprising', 'Prague Spring', 'Solidarity', 'Boxer Rebellion'], correctAnswer: 0 },
-          { id: 'sup-v2-3', type: 'mcq', question: 'The Berlin Wall was built in which year?', options: ['1948', '1953', '1961', '1989'], correctAnswer: 2 },
-          { id: 'sup-v2-4', type: 'mcq', question: 'Who was the US President during the Cuban Missile Crisis?', options: ['Truman', 'Eisenhower', 'Kennedy', 'Johnson'], correctAnswer: 2 },
-          { id: 'suv-m-1', type: 'mcq', question: 'In 1949, the USSR successfully tested what?', options: ['A rocket', 'A satellite', 'An atomic bomb', 'A hydrogen bomb'], correctAnswer: 2 },
-          { id: 'suv-m-2', type: 'mcq', question: 'What was the official name of West Germany from 1949?', options: ['GDR', 'FRG', 'Third Reich', 'Holy Roman Empire'], correctAnswer: 1 },
-          { id: 'suv-m-3', type: 'mcq', question: 'Who succeeded Stalin as leader of the USSR in 1953?', options: ['Malenkov', 'Khrushchev', 'Brezhnev', 'Gorbachev'], correctAnswer: 1 },
-          { id: 'suv-m-4', type: 'mcq', question: 'What was Khrushchev\'s policy mentioned in his "Secret Speech"?', options: ['Glasnost', 'Perestroika', 'De-Stalinization', 'Collectivization'], correctAnswer: 2 },
-          { id: 'sup-m-31', type: 'mcq', question: 'In which year did the Cuban Missile Crisis occur?', options: ['1960', '1961', '1962', '1963'], correctAnswer: 2 },
-          { id: 'sup-m-32', type: 'mcq', question: 'The "Hotline" was established between which two cities?', options: ['London & Paris', 'Washington & Moscow', 'Berlin & Moscow', 'New York & London'], correctAnswer: 1 },
-          { id: 'sup-m-33', type: 'mcq', question: 'Who was the Soviet leader during the Cuban Missile Crisis?', options: ['Stalin', 'Khrushchev', 'Brezhnev', 'Gorbachev'], correctAnswer: 1 },
-          { id: 'sup-m-34', type: 'mcq', question: 'The U-2 spy plane shot down in 1960 was piloted by:', options: ['Powers', 'Glenn', 'Armstrong', 'Kennedy'], correctAnswer: 0 },
-          { id: 'sup-m-35', type: 'mcq', question: 'Which US President authorized the Bay of Pigs invasion?', options: ['Eisenhower', 'Kennedy', 'Johnson', 'Nixon'], correctAnswer: 1 },
-          { id: 'sup-m-36', type: 'mcq', question: 'The "Peaceful Coexistence" policy was associated with:', options: ['Stalin', 'Khrushchev', 'Brezhnev', 'Mao'], correctAnswer: 1 },
-          { id: 'sup-m-37', type: 'mcq', question: 'The Berlin Wall was built primarily to stop:', options: ['US invasion', 'Brain drain (migration to West)', 'Soviet spies', 'Trade'], correctAnswer: 1 },
-          { id: 'sup-m-38', type: 'mcq', question: 'The first satellite launched into space was:', options: ['Apollo 11', 'Sputnik', 'Vostok', 'Explorer'], correctAnswer: 1 },
-          { id: 'sup-m-39', type: 'mcq', question: 'Nagy was the leader of the reform movement in:', options: ['Poland', 'Hungary', 'East Germany', 'Romania'], correctAnswer: 1 },
-          { id: 'sup-m-40', type: 'mcq', question: 'The Test Ban Treaty (1963) banned nuclear tests in:', options: ['The atmosphere', 'Underground', 'Space', 'Both A and C'], correctAnswer: 3 },
-          { id: 'sup-m-41', type: 'mcq', question: 'Which doctrine stated the USSR would intervene if a communist country was threatened?', options: ['Truman', 'Brezhnev', 'Monroe', 'Stalin'], correctAnswer: 1 },
-          { id: 'sup-m-42', type: 'mcq', question: 'The leader of the Prague Spring (1968) was:', options: ['Dubček', 'Nagy', 'Havel', 'Gomulka'], correctAnswer: 0 },
-          { id: 'sup-m-43', type: 'mcq', question: 'Which treaty was signed in 1968 to stop the spread of nuclear weapons?', options: ['SALT I', 'NPT (Non-Proliferation Treaty)', 'ABM Treaty', 'Inf Treaty'], correctAnswer: 1 },
-          { id: 'sup-m-44', type: 'mcq', question: 'SALT I (1972) limited the number of:', options: ['Troops', 'Aircraft carriers', 'ICBMs and SLBMs', 'Satellite weapons'], correctAnswer: 2 },
-          { id: 'sup-m-45', type: 'mcq', question: 'Détente refers to:', options: ['A state of war', 'A cooling of relations', 'An easing of tensions', 'Economic collapse'], correctAnswer: 2 },
-          { id: 'sup-m-46', type: 'mcq', question: 'Fidel Castro came to power in Cuba in:', options: ['1953', '1959', '1961', '1963'], correctAnswer: 1 },
-          { id: 'sup-m-47', type: 'mcq', question: 'The "Checkmate" moment of the Missile Crisis was when:', options: ['Khrushchev agreed to remove missiles', 'Kennedy invaded Cuba', 'The UN took over', 'Castro resigned'], correctAnswer: 0 },
-          { id: 'sup-m-48', type: 'mcq', question: 'What did the US secretly agree to remove from Turkey?', options: ['Troops', 'Spy planes', 'Jupiter missiles', 'Embassy'], correctAnswer: 2 },
-          { id: 'sup-m-49', type: 'mcq', question: 'The "Outer Space Treaty" (1967) aimed to:', options: ['Start a moon base', 'Keep space free from nuclear weapons', 'Block satellite TV', 'Track aliens'], correctAnswer: 1 },
-          { id: 'sup-m-50', type: 'mcq', question: 'Checkpoint Charlie was a famous crossing point in:', options: ['Moscow', 'Berlin', 'Cuban waters', 'Prague'], correctAnswer: 1 },
-          { id: 'sup-m-51', type: 'mcq', question: 'The "Vienna Summit" (1961) was between Kennedy and:', options: ['Khrushchev', 'Brezhnev', 'Stalin', 'Andropov'], correctAnswer: 0 },
-          { id: 'sup-m-52', type: 'mcq', question: 'Which country left the Warsaw Pact temporarily during its 1956 uprising?', options: ['Poland', 'Hungary', 'East Germany', 'Bulgaria'], correctAnswer: 1 },
-          { id: 'sup-m-53', type: 'mcq', question: 'The "Gang of Four" usually refers to:', options: ['Mao\'s rivals', 'US generals', 'Cuban rebels', 'Soviet spies'], correctAnswer: 0 },
-          { id: 'sup-m-54', type: 'mcq', question: 'What was the official name of the "Grand Alliance"?', options: ['The Allies', 'United Nations', 'Anti-Axis Coalition', 'The Three Kings'], correctAnswer: 1 },
-          { id: 'sup-m-55', type: 'mcq', question: 'Which island was at the center of the 1962 crisis?', options: ['Taiwan', 'Cuba', 'Cyprus', 'Berlin'], correctAnswer: 1 },
-          { id: 'sup-m-56', type: 'mcq', question: 'Vietnam became a major Cold War conflict in the:', options: ['1940s', '1950s', '1960s', '1980s'], correctAnswer: 2 },
-          { id: 'sup-m-57', type: 'mcq', question: 'The term "Iron Curtain" was coined in:', options: ['1945', '1946', '1947', '1948'], correctAnswer: 1 },
-          { id: 'sup-m-58', type: 'mcq', question: 'Which city hosted the 1972 SALT I signing?', options: ['Washington', 'London', 'Moscow', 'Paris'], correctAnswer: 2 },
-          { id: 'sup-m-59', type: 'mcq', question: 'Who was Brandt and what was his policy?', options: ['US General - Containment', 'West German Chancellor - Ostpolitik', 'Soviet Leader - Glasnost', 'French President - Independence'], correctAnswer: 1 },
-          { id: 'sup-m-60', type: 'mcq', question: 'By 1972, the Cold War entered a period of:', options: ['High tension', 'Proxy war', 'Détente', 'Total war'], correctAnswer: 2 },
-          { id: 'sup-m-61', type: 'mcq', question: 'The "Kitchen Debate" (1959) was between Nixon and:', options: ['Stalin', 'Khrushchev', 'Brezhnev', 'Mao'], correctAnswer: 1 },
-          { id: 'sup-m-62', type: 'mcq', question: 'Which city was the site of the 1961 summit?', options: ['Paris', 'Vienna', 'Geneva', 'Helsinki'], correctAnswer: 1 },
-          { id: 'sup-m-63', type: 'mcq', question: 'The "U-2 Incident" happened in which month and year?', options: ['May 1960', 'Oct 1962', 'Aug 1961', 'Jan 1959'], correctAnswer: 0 },
-          { id: 'sup-m-64', type: 'mcq', question: 'Who was the US Secretary of State under Eisenhower?', options: ['Marshall', 'Dulles', 'Acheson', 'Kissinger'], correctAnswer: 1 },
-          { id: 'sup-m-65', type: 'mcq', question: 'The policy of "Massive Retaliation" was adopted by:', options: ['Truman', 'Eisenhower', 'Kennedy', 'Nixon'], correctAnswer: 1 },
-          { id: 'sup-m-66', type: 'mcq', question: 'Which country successfully tested its first H-bomb in 1952?', options: ['USSR', 'USA', 'Britain', 'France'], correctAnswer: 1 },
-          { id: 'sup-m-67', type: 'mcq', question: 'The first Soviet H-bomb test was in:', options: ['1949', '1953', '1957', '1961'], correctAnswer: 1 },
-          { id: 'sup-m-68', type: 'mcq', question: 'The ICBM (Intercontinental Ballistic Missile) was first launched by:', options: ['USA', 'USSR', 'Britain', 'China'], correctAnswer: 1 },
-          { id: 'sup-m-69', type: 'mcq', question: 'Which line of latitude divided North and South Korea?', options: ['17th Parallel', '38th Parallel', '45th Parallel', 'Equator'], correctAnswer: 1 },
-          { id: 'sup-m-70', type: 'mcq', question: 'The Korean War began in:', options: ['1948', '1950', '1953', '1955'], correctAnswer: 1 },
-          { id: 'sup-m-71', type: 'mcq', question: 'The first human in space was:', options: ['Neil Armstrong', 'Yuri Gagarin', 'Alan Shepard', 'Buzz Aldrin'], correctAnswer: 1 },
-          { id: 'sup-m-72', type: 'mcq', question: 'The SALT I treaty was signed in which year?', options: ['1969', '1970', '1971', '1972'], correctAnswer: 3 },
-          { id: 'sup-m-73', type: 'mcq', question: 'Which organization was founded in 1955 for trade in the Eastern Bloc?', options: ['Cominform', 'Comecon', 'NATO', 'SEATO'], correctAnswer: 1 },
-          { id: 'sup-m-74', type: 'mcq', question: 'The "Secret Speech" by Khrushchev in 1956 attacked whom?', options: ['Truman', 'Mao', 'Stalin', 'Brezhnev'], correctAnswer: 2 },
-          { id: 'sup-m-75', type: 'mcq', question: 'Which island was involved in the "Quemoy and Matsu" crisis?', options: ['Cuba', 'Taiwan', 'Japan', 'Philippines'], correctAnswer: 1 },
-          { id: 'sup-m-76', type: 'mcq', question: 'The "Berlin Ultimatum" of 1958 was issued by:', options: ['Eisenhower', 'Khrushchev', 'Stalin', 'Kennedy'], correctAnswer: 1 },
-          { id: 'sup-m-77', type: 'mcq', question: 'What was the official name of the "Berlin Wall"?', options: ['The Iron Curtain', 'Antifascist Protective Rampart', 'The Death Strip', 'The Wall of Peace'], correctAnswer: 1 },
-          { id: 'sup-m-78', type: 'mcq', question: 'Which country did the USSR invade in 1956?', options: ['Poland', 'Hungary', 'Czechoslovakia', 'Yugoslavia'], correctAnswer: 1 },
-          { id: 'sup-m-79', type: 'mcq', question: 'Which country did the USSR invade in 1968?', options: ['Poland', 'Hungary', 'Czechoslovakia', 'Yugoslavia'], correctAnswer: 2 },
-          { id: 'sup-m-80', type: 'mcq', question: 'The "Prague Spring" leader Alexander Dubcek wanted:', options: ['Capitalism', 'Socialism with a human face', 'To join NATO', 'Total independence'], correctAnswer: 1 },
-          { id: 'sup-m-81', type: 'mcq', question: 'The ABM (Anti-Ballistic Missile) Treaty was part of:', options: ['NATO', 'SALT I', 'Warsaw Pact', 'SEATO'], correctAnswer: 1 },
-          { id: 'sup-m-82', type: 'mcq', question: 'Who was the US President who visited China in 1972?', options: ['Kennedy', 'Johnson', 'Nixon', 'Ford'], correctAnswer: 2 },
-          { id: 'sup-m-83', type: 'mcq', question: 'Which document in 1947 described the USSR as expansionist?', options: ['Marshall Plan', 'Truman Doctrine', 'Long Telegram', 'NSC-68'], correctAnswer: 2 },
-          { id: 'sup-m-84', type: 'mcq', question: 'The response to the Marshall Plan by the Soviets was:', options: ['NATO', 'Comecon', 'SEATO', 'Warsaw Pact'], correctAnswer: 1 },
-          { id: 'sup-m-85', type: 'mcq', question: 'What was the name of the West German intelligence agency?', options: ['BND', 'Gestapo', 'Stasi', 'KGB'], correctAnswer: 0 },
-          { id: 'sup-m-86', type: 'mcq', question: 'What was the name of the East German secret police?', options: ['BND', 'Gestapo', 'Stasi', 'KGB'], correctAnswer: 2 },
-          { id: 'sup-m-87', type: 'mcq', question: 'The first West German Chancellor was:', options: ['Brandt', 'Adenauer', 'Kohl', 'Schmidt'], correctAnswer: 1 },
-          { id: 'sup-m-88', type: 'mcq', question: 'The "Domino Theory" was primarily about which region?', options: ['Europe', 'Latin America', 'Southeast Asia', 'Middle East'], correctAnswer: 2 },
-          { id: 'sup-m-89', type: 'mcq', question: 'SEATO stands for:', options: ['South East Asia Treaty Organization', 'Southern European Alliance', 'Special East Asian Trade Office', 'Sovereign East Asian Union'], correctAnswer: 0 },
-          { id: 'sup-m-90', type: 'mcq', question: 'The "Space Race" began with the launch of:', options: ['Apollo 11', 'Sputnik 1', 'Vostok 1', 'Explorer 1'], correctAnswer: 1 },
-          { id: 'sup-m-91', type: 'mcq', question: 'The "Checkpoint Charlie" standoff (1961) involved which two countries\' tanks?', options: ['USA and USSR', 'Britain and France', 'Germany and Poland', 'USA and China'], correctAnswer: 0 },
-          { id: 'sup-m-92', type: 'mcq', question: 'Who was the leader of the Soviet Union after Khrushchev?', options: ['Andropov', 'Brezhnev', 'Stalin', 'Yeltsin'], correctAnswer: 1 },
-          { id: 'sup-m-93', type: 'mcq', question: 'The SALT I treaty was signed by Nixon and:', options: ['Stalin', 'Khrushchev', 'Brezhnev', 'Gorbachev'], correctAnswer: 2 },
-          { id: 'sup-m-94', type: 'mcq', question: 'Which country was the site of the 1968 "Prague Spring"?', options: ['Poland', 'Czechoslovakia', 'Hungary', 'East Germany'], correctAnswer: 1 },
-          { id: 'sup-m-95', type: 'mcq', question: 'The "Bay of Pigs" invasion aimed to overthrow:', options: ['Batista', 'Castro', 'Kennedy', 'Mao'], correctAnswer: 1 },
-          { id: 'sup-m-96', type: 'mcq', question: 'Which year did the Berlin Wall fall?', options: ['1961', '1989', '1972', '1991'], correctAnswer: 1 },
-          { id: 'sup-m-97', type: 'mcq', question: 'The "Truman Doctrine" pledged to help countries resisting:', options: ['Subjugation by armed minorities or outside pressures', 'Low trade', 'High taxes', 'Religious rule'], correctAnswer: 0 },
-          { id: 'sup-m-98', type: 'mcq', question: 'Which city was divided into four occupation zones in 1945?', options: ['London', 'Berlin', 'Paris', 'New York'], correctAnswer: 1 },
-          { id: 'sup-m-99', type: 'mcq', question: 'What was the nickname for the first atomic bomb ever detonated?', options: ['Fat Man', 'Little Boy', 'The Gadget', 'Tsar Bomba'], correctAnswer: 2 },
-          { id: 'sup-m-100', type: 'mcq', question: 'The "Hotline" established in 1963 was a:', options: ['Direct telephone link', 'Teleprinter link', 'TV channel', 'Radio station'], correctAnswer: 1 }
+          { id: 'sup-or-m1', type: 'mcq', question: 'Which conference was the first meeting of the "Big Three" in 1943?', options: ['Yalta', 'Potsdam', 'Tehran', 'Casablanca'], correctAnswer: 2, explanation: 'Tehran was the first summit of Stalin, Roosevelt, and Churchill.' },
+          { id: 'sup-or-m2', type: 'mcq', question: 'At Yalta, what was agreed regarding Germany?', options: ['It would be annexed by France', 'It would be divided into four occupation zones', 'It would remain a single united state', 'It would be completely de-industrialized'], correctAnswer: 1 },
+          { id: 'sup-or-m3', type: 'mcq', question: 'The "Percentages Agreement" (1944) was between which two leaders?', options: ['Truman and Stalin', 'Churchill and Stalin', 'Roosevelt and Churchill', 'Attlee and Stalin'], correctAnswer: 1, explanation: 'An informal agreement about spheres of influence in Eastern Europe.' },
+          { id: 'sup-or-m4', type: 'mcq', question: 'Churchill\'s 1946 speech in Fulton, Missouri, coined which term?', options: ['Containment', 'Iron Curtain', 'Red Scare', 'Double Speak'], correctAnswer: 1 },
+          { id: 'sup-or-m5', type: 'mcq', question: 'What was the primary goal of the Truman Doctrine (1947)?', options: ['To invade the USSR', 'To provide military aid to any country resisting communist takeover', 'To share atomic secrets', 'To promote free trade in Asia'], correctAnswer: 1 },
+          { id: 'sup-or-m6', type: 'mcq', question: 'The Marshall Plan (1947) offered what to European nations?', options: ['Nuclear protection', 'Massive economic aid for reconstruction', 'Direct military rule', 'Membership in the UN'], correctAnswer: 1 },
+          { id: 'sup-or-m7', type: 'mcq', question: 'How did Stalin respond to the Marshall Plan?', options: ['He accepted it for Poland', 'He created Comecon to coordinate Eastern Bloc economies', 'He declared war', 'He resigned'], correctAnswer: 1 },
+          { id: 'sup-or-m8', type: 'mcq', question: 'What was "Cominform" set up to do in 1947?', options: ['Provide food aid', 'Co-ordinate and control international communist parties', 'Spy on the USA', 'Run the Olympic games'], correctAnswer: 1 },
+          { id: 'sup-or-m9', type: 'mcq', question: 'Bizonia (1947) was the merger of which two zones?', options: ['British and French', 'US and Soviet', 'US and British', 'Soviet and French'], correctAnswer: 2 },
+          { id: 'sup-or-m10', type: 'mcq', question: 'Which 1948 trigger led to the Berlin Blockade?', options: ['NATO formation', 'The introduction of a new currency (Deutschmark)', 'A Soviet plane crash', 'The death of Stalin'], correctAnswer: 1 },
+          { id: 'sup-or-m11', type: 'mcq', question: 'The "Berlin Airlift" was known as Operation:', options: ['Vittles', 'Overlord', 'Barbarossa', 'Market Garden'], correctAnswer: 0 },
+          { id: 'sup-or-m12', type: 'mcq', question: 'Which military alliance was formed by Western powers in 1949?', options: ['Warsaw Pact', 'NATO', 'SEATO', 'CENTO'], correctAnswer: 1 },
+          { id: 'sup-or-m13', type: 'mcq', question: 'The USSR successfully tested its first atomic bomb in:', options: ['1945', '1947', '1949', '1952'], correctAnswer: 2 },
+          { id: 'sup-or-m14', type: 'mcq', question: 'What was the name of the West German state formed in 1949?', options: ['GDR', 'FRG', 'Third Reich', 'Holy Roman State'], correctAnswer: 1 },
+          { id: 'sup-or-s1', type: 'structured', question: 'Explain two consequences of the Potsdam Conference. [8]', markScheme: '• Division of Germany/Berlin into 4 zones\n• Disagreements over Poland\'s borders\n• Truman informed Stalin of the A-bomb, increasing suspicion', modelAnswer: 'One consequence was the formal division of Germany and Berlin into four zones controlled by the Allies. Another was increased suspicion between Truman and Stalin, as Truman revealed the existence of the atomic bomb, which Stalin felt was a threat to Soviet security.' }
+        ]
+      },
+      {
+        id: 'sup-1950s',
+        title: 'The Cold War in the 1950s',
+        questions: [
+          { id: 'sup-50-m1', type: 'mcq', question: 'The Korean War (1950-53) began when:', options: ['South Korea invaded China', 'North Korea invaded South Korea', 'The US nuked Tokyo', 'Stalin visited Seoul'], correctAnswer: 1 },
+          { id: 'sup-50-m2', type: 'mcq', question: 'Who commanded UN forces in Korea before being dismissed by Truman?', options: ['Eisenhower', 'MacArthur', 'Marshall', 'Patton'], correctAnswer: 1 },
+          { id: 'sup-50-m3', type: 'mcq', question: 'The Warsaw Pact (1955) was created as a response to:', options: ['The Korean War ending', 'West Germany joining NATO', 'The Marshall Plan', 'Sputnik'], correctAnswer: 1 },
+          { id: 'sup-50-m4', type: 'mcq', question: 'Khrushchev\'s "Secret Speech" (1956) was a part of which policy?', options: ['Collectivization', 'Total War', 'De-Stalinization', 'Containment'], correctAnswer: 2 },
+          { id: 'sup-50-m5', type: 'mcq', question: 'The 1956 Hungarian Uprising was initially led by:', options: ['Rakosi', 'Nagy', 'Kadar', 'Dubcek'], correctAnswer: 1 },
+          { id: 'sup-50-m6', type: 'mcq', question: 'What was Imre Nagy\'s most radical demand during the 1956 uprising?', options: ['Changing to a US dollar economy', 'Withdrawing from the Warsaw Pact and declaring neutrality', 'Invading Yugoslavia', 'Replacing the Pope'], correctAnswer: 1 },
+          { id: 'sup-50-m7', type: 'mcq', question: 'How did the USSR respond to Nagy\'s declaration of neutrality?', options: ['They ignored it', 'They invaded with tanks to crush the uprising', 'They offered him more aid', 'They held a UN vote'], correctAnswer: 1 },
+          { id: 'sup-50-m8', type: 'mcq', question: 'Khrushchev\'s policy of "Peaceful Co-existence" meant:', options: ['Total friendship with USA', 'Competing economically and ideologically without direct war', 'Merging the USSR into NATO', 'Shared government with Britain'], correctAnswer: 1 },
+          { id: 'sup-50-m9', type: 'mcq', question: 'The first artificial satellite, launched by the USSR in 1957, was:', options: ['Apollo 1', 'Vostok 1', 'Sputnik 1', 'Explorer 1'], correctAnswer: 2 },
+          { id: 'sup-50-m10', type: 'mcq', question: 'The 1959 "Kitchen Debate" was an informal meeting between:', options: ['Stalin and Truman', 'Khrushchev and Nixon', 'Kennedy and Castro', 'Dulles and Molotov'], correctAnswer: 1 }
+        ]
+      },
+      {
+        id: 'sup-crises',
+        title: 'Three Crises: Berlin, Cuba & Czechoslovakia',
+        questions: [
+          { id: 'sup-cr-m1', type: 'mcq', question: 'Khrushchev\'s 1958 Berlin Ultimatum demanded that Berlin become:', options: ['A United States city', 'A demilitarised "free city"', 'A French colony', 'The capital of NATO'], correctAnswer: 1 },
+          { id: 'sup-cr-m2', type: 'mcq', question: 'What month and year was the construction of the Berlin Wall begun?', options: ['Aug 1961', 'Oct 1962', 'Jan 1960', 'Nov 1989'], correctAnswer: 0 },
+          { id: 'sup-cr-m3', type: 'mcq', question: 'The 1961 standoff at Checkpoint Charlie involved which two nations\' tanks?', options: ['Britain and USSR', 'USA and USSR', 'GDR and FRG', 'France and Poland'], correctAnswer: 1 },
+          { id: 'sup-cr-m4', type: 'mcq', question: 'The Bay of Pigs (1961) was a failed invasion of which country?', options: ['Vietnam', 'Cuba', 'Korea', 'Panama'], correctAnswer: 1 },
+          { id: 'sup-cr-m5', type: 'mcq', question: 'How did the US discover Soviet missiles in Cuba in 1962?', options: ['Spy on the ground', 'U-2 spy plane photographs', 'A Soviet defector', 'An anonymous tip'], correctAnswer: 1 },
+          { id: 'sup-cr-m6', type: 'mcq', question: 'What was Kennedy\'s chosen response to the Cuban missiles?', options: ['Invasion', 'Air strike', 'Naval "quarantine"', 'Total surrender'], correctAnswer: 2 },
+          { id: 'sup-cr-m7', type: 'mcq', question: 'The secret part of the Cuba deal involved the US removing missiles from:', options: ['Turkey', 'England', 'Japan', 'Canada'], correctAnswer: 0 },
+          { id: 'sup-cr-m8', type: 'mcq', question: 'Alexander Dubcek became leader of which country in 1968?', options: ['Hungary', 'Poland', 'Czechoslovakia', 'Romania'], correctAnswer: 2 },
+          { id: 'sup-cr-m9', type: 'mcq', question: 'The "Prague Spring" aimed to create what type of socialism?', options: ['Leninist', 'Maoist', 'Socialism with a human face', 'Socialist real estate'], correctAnswer: 2 },
+          { id: 'sup-cr-m10', type: 'mcq', question: 'The Brezhnev Doctrine (1968) stated that the USSR would:', options: ['Invade USA', 'Let every nation choose its own path', 'Intervene if communism was threatened in any Eastern Bloc country', 'Stop all nuclear testing'], correctAnswer: 2 },
+          { id: 'sup-cr-m11', type: 'mcq', question: 'Which US spy plane was shot down over the USSR in 1960?', options: ['U-2', 'SR-71 Blackbird', 'B-52', 'Spitfire'], correctAnswer: 0 }
+        ]
+      },
+      {
+        id: 'sup-detente',
+        title: 'The Thaw and Détente (1963–72)',
+        questions: [
+          { id: 'sup-de-m1', type: 'mcq', question: 'The direct communication link set up in 1963 was called the:', options: ['Warm-line', 'Red-Phone', 'Hotline', 'Cold-Wire'], correctAnswer: 2 },
+          { id: 'sup-de-m2', type: 'mcq', question: 'The 1963 Test Ban Treaty prohibited nuclear explosions in:', options: ['The atmosphere, outer space and underwater', 'Deep underground only', 'Only in the USA', 'In hospitals'], correctAnswer: 0 },
+          { id: 'sup-de-m3', type: 'mcq', question: 'What did the 1967 Outer Space Treaty forbid?', options: ['All Moon missions', 'Stationing weapons of mass destruction in orbit', 'Aliens from landing', 'Commercial satellites'], correctAnswer: 1 },
+          { id: 'sup-de-m4', type: 'mcq', question: 'The Non-Proliferation Treaty (NPT) of 1968 aimed to:', options: ['Increase trade', 'Stop the spread of nuclear weapons technology', 'Ban all computers', 'End the Vietnam war'], correctAnswer: 1 },
+          { id: 'sup-de-m5', type: 'mcq', question: 'Which West German Chancellor pursued "Ostpolitik"?', options: ['Adenauer', 'Kohl', 'Schmidt', 'Brandt'], correctAnswer: 3 },
+          { id: 'sup-de-m6', type: 'mcq', question: 'What does SALT stand for (signed 1972)?', options: ['Soviet-American Land Treaty', 'Strategic Arms Limitation Talks', 'Secretly Armed Land Troops', 'Ships and Aircraft Limitation Treaty'], correctAnswer: 1 },
+          { id: 'sup-de-m7', type: 'mcq', question: 'The 1972 SALT I treaty limited the number of:', options: ['Troops', 'ICBMs and SLBMs', 'Aircraft carriers', 'Warships'], correctAnswer: 1 },
+          { id: 'sup-de-m8', type: 'mcq', question: 'Nixon\'s 1972 visit to which country was a "shock" that helped start Détente?', options: ['Vietnam', 'China', 'Cuba', 'Australia'], correctAnswer: 1 }
         ]
       }
     ]
@@ -2306,6 +2285,217 @@ export const COMPUTERSCIENCE_TOPICS: Topic[] = [
           { id: 'cs-aut-m99', type: 'mcq', question: 'A "Human-in-the-loop" AI system:', options: ['Has no human', 'Requires human interaction for certain steps', 'Is only for humans', 'Is broken'], correctAnswer: 1 },
           { id: 'cs-aut-m100', type: 'mcq', question: 'Robotics Mastery Completion: An "Android" is a robot that ______.', options: ['Is a phone', 'Resembles a human', 'Is very small', 'Is only digital'], correctAnswer: 1 },
           { id: 'cs-aut-s1', type: 'structured', question: 'Explain the role of sensors and microprocessors in an automated greenhouse. [4]', markScheme: '• Sensors measure light/temp/moisture\n• Data is converted from analog to digital (ADC)\n• Microprocessor compares data against pre-set values\n• If data is outside range, microprocessor sends signal to actuator (e.g. to open window / turn on heater)', modelAnswer: 'Sensors continuously monitor conditions like temperature. This data is sent to a microprocessor, which compares the readings to target levels. If the temperature is too high, the microprocessor sends a command to an actuator to open the vents.', keywords: ['sensor', 'compare', 'target', 'actuator'] }
+        ]
+      }
+    ]
+  }
+];
+
+export const SCIENCE_TOPICS: Topic[] = [
+  {
+    id: 'coordinated-science-formulas',
+    title: 'Co-ordinated Science Formulas',
+    section: 'IGCSE 0654',
+    description: 'Core equations for Biology, Chemistry, and Physics in flashcard format.',
+    subtopics: [
+      {
+        id: 'sci-bio-formulas',
+        title: 'Biology Formulas',
+        questions: [
+          {
+            id: 'f-bio-mag',
+            type: 'formula',
+            question: "What's the equation for magnification?",
+            formulaData: {
+              triangle: { top: 'I', left: 'M', right: 'A' },
+              symbols: [
+                { symbol: 'I', name: 'Image size', unit: 'mm / μm' },
+                { symbol: 'M', name: 'Magnification', unit: 'x' },
+                { symbol: 'A', name: 'Actual size', unit: 'mm / μm' }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: 'sci-chem-formulas',
+        title: 'Chemistry Formulas',
+        questions: [
+          {
+            id: 'f-chem-moles-s',
+            type: 'formula',
+            question: "What's the equation for moles in a solid?",
+            formulaData: {
+              triangle: { top: 'm', left: 'n', right: 'Mr' },
+              symbols: [
+                { symbol: 'm', name: 'Mass', unit: 'g' },
+                { symbol: 'n', name: 'Moles', unit: 'mol' },
+                { symbol: 'Mr', name: 'Relative formula mass', unit: 'none' }
+              ]
+            }
+          },
+          {
+            id: 'f-chem-moles-l',
+            type: 'formula',
+            question: "What's the equation for moles in a liquid solution?",
+            formulaData: {
+              triangle: { top: 'n', left: 'C', right: 'V' },
+              symbols: [
+                { symbol: 'n', name: 'Moles', unit: 'mol' },
+                { symbol: 'C', name: 'Concentration', unit: 'mol/dm³' },
+                { symbol: 'V', name: 'Volume', unit: 'dm³' }
+              ]
+            }
+          },
+          {
+            id: 'f-chem-moles-g',
+            type: 'formula',
+            question: "What's the equation for moles in a gas (RTP)?",
+            formulaData: {
+              triangle: { top: 'V', left: 'n', right: '24' },
+              symbols: [
+                { symbol: 'V', name: 'Volume', unit: 'dm³' },
+                { symbol: 'n', name: 'Moles', unit: 'mol' },
+                { symbol: '24', name: 'Molar volume', unit: 'dm³/mol' }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: 'sci-phys-formulas',
+        title: 'Physics Formulas',
+        questions: [
+          {
+            id: 'f-phys-speed',
+            type: 'formula',
+            question: "What's the equation for average speed?",
+            formulaData: {
+              triangle: { top: 'd', left: 's', right: 't' },
+              symbols: [
+                { symbol: 'd', name: 'Distance', unit: 'm' },
+                { symbol: 's', name: 'Speed', unit: 'm/s' },
+                { symbol: 't', name: 'Time', unit: 's' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-weight',
+            type: 'formula',
+            question: "What's the equation for weight?",
+            formulaData: {
+              triangle: { top: 'W', left: 'm', right: 'g' },
+              symbols: [
+                { symbol: 'W', name: 'Weight', unit: 'N' },
+                { symbol: 'm', name: 'Mass', unit: 'kg' },
+                { symbol: 'g', name: 'Gravitational field strength', unit: 'N/kg' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-force',
+            type: 'formula',
+            question: "What's the equation for resultant force?",
+            formulaData: {
+              triangle: { top: 'F', left: 'm', right: 'a' },
+              symbols: [
+                { symbol: 'F', name: 'Force', unit: 'N' },
+                { symbol: 'm', name: 'Mass', unit: 'kg' },
+                { symbol: 'a', name: 'Acceleration', unit: 'm/s²' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-density',
+            type: 'formula',
+            question: "What's the equation for density?",
+            formulaData: {
+              triangle: { top: 'm', left: 'ρ', right: 'V' },
+              symbols: [
+                { symbol: 'm', name: 'Mass', unit: 'kg or g' },
+                { symbol: 'ρ', name: 'Density', unit: 'kg/m³ or g/cm³' },
+                { symbol: 'V', name: 'Volume', unit: 'm³ or cm³' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-pressure',
+            type: 'formula',
+            question: "What's the equation for pressure?",
+            formulaData: {
+              triangle: { top: 'F', left: 'p', right: 'A' },
+              symbols: [
+                { symbol: 'F', name: 'Force', unit: 'N' },
+                { symbol: 'p', name: 'Pressure', unit: 'Pa or N/m²' },
+                { symbol: 'A', name: 'Area', unit: 'm²' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-work',
+            type: 'formula',
+            question: "What's the equation for work done?",
+            formulaData: {
+              triangle: { top: 'W', left: 'F', right: 'd' },
+              symbols: [
+                { symbol: 'W', name: 'Work done', unit: 'J' },
+                { symbol: 'F', name: 'Force', unit: 'N' },
+                { symbol: 'd', name: 'Distance (in direction of force)', unit: 'm' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-power',
+            type: 'formula',
+            question: "What's the equation for power?",
+            formulaData: {
+              triangle: { top: 'W', left: 'P', right: 't' },
+              symbols: [
+                { symbol: 'W', name: 'Work done (or Energy)', unit: 'J' },
+                { symbol: 'P', name: 'Power', unit: 'W' },
+                { symbol: 't', name: 'Time', unit: 's' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-ohm',
+            type: 'formula',
+            question: "What's the equation for Ohm's Law (Voltage)?",
+            formulaData: {
+              triangle: { top: 'V', left: 'I', right: 'R' },
+              symbols: [
+                { symbol: 'V', name: 'Voltage (Potential Difference)', unit: 'V' },
+                { symbol: 'I', name: 'Current', unit: 'A' },
+                { symbol: 'R', name: 'Resistance', unit: 'Ω' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-elec-p',
+            type: 'formula',
+            question: "Whats the equation for electrical power?",
+            formulaData: {
+              triangle: { top: 'P', left: 'I', right: 'V' },
+              symbols: [
+                { symbol: 'P', name: 'Power', unit: 'W' },
+                { symbol: 'I', name: 'Current', unit: 'A' },
+                { symbol: 'V', name: 'Voltage', unit: 'V' }
+              ]
+            }
+          },
+          {
+            id: 'f-phys-waves',
+            type: 'formula',
+            question: "What's the equation for wave speed?",
+            formulaData: {
+              triangle: { top: 'v', left: 'f', right: 'λ' },
+              symbols: [
+                { symbol: 'v', name: 'Wave speed', unit: 'm/s' },
+                { symbol: 'f', name: 'Frequency', unit: 'Hz' },
+                { symbol: 'λ', name: 'Wavelength', unit: 'm' }
+              ]
+            }
+          }
         ]
       }
     ]
