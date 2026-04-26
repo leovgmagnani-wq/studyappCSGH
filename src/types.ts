@@ -71,3 +71,36 @@ export interface UserProgress {
   attempts: Record<string, number>;
   srs: Record<string, MemoryData>;
 }
+
+export interface GeoKeyword {
+  term: string;
+  definition: string;
+}
+
+export interface GeoCaseStudySection {
+  subtitle: string;
+  body: string;
+}
+
+export interface GeoCaseStudy {
+  id: string;
+  title: string;
+  flag: string;
+  sections: GeoCaseStudySection[];
+  color: string;
+}
+
+export interface GeoUnit {
+  id: string;
+  number: string;
+  title: string;
+  keywords: GeoKeyword[];
+  caseStudies: GeoCaseStudy[];
+}
+
+export interface GeoTheme {
+  id: string;
+  title: string;
+  color: string;
+  units: GeoUnit[];
+}

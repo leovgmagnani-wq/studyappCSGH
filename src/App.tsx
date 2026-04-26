@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { HISTORY_TOPICS, GEOGRAPHY_TOPICS, COMPUTERSCIENCE_TOPICS, SCIENCE_TOPICS } from './data/content';
 import { SubjectId, Topic, Subtopic, UserProgress, Question, MemoryData, TimelineEvent } from './types';
+import GeographyDashboard from './components/GeographyView';
 
 // SRS Algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -214,8 +215,11 @@ export default function App() {
 
       <div className="flex flex-col md:flex-row flex-1 overflow-hidden relative">
         <main className="flex-1 p-3 md:p-8 bg-gradient-to-br from-slate-950 to-slate-900 overflow-y-auto scrollbar-hide">
-          <AnimatePresence mode="wait">
-            {view === 'topic_list' && (
+          {activeSubject === 'geography' ? (
+            <GeographyDashboard />
+          ) : (
+            <AnimatePresence mode="wait">
+              {view === 'topic_list' && (
               <motion.section key="tlist" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div className="mb-6 md:mb-10 text-center max-w-2xl mx-auto">
                    <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight">System <span className={`text-${theme.primary}`}>Core</span></h2>
@@ -327,13 +331,13 @@ export default function App() {
                                                  <line x1="50" y1="54" x2="50" y2="90" stroke="currentColor" strokeWidth="2.5" />
                                                  
                                                  {/* Symbols centered in SVG units */}
-                                                 <text x="50" y="32" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 <text x="50" y="36" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[12px] md:text-[15px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                     {quizQueue[quizIndex].formulaData?.triangle.top}
                                                  </text>
-                                                 <text x="32" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 <text x="31" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[12px] md:text-[15px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                     {quizQueue[quizIndex].formulaData?.triangle.left}
                                                  </text>
-                                                 <text x="68" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[16px] md:text-[18px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                                                 <text x="69" y="74" textAnchor="middle" dominantBaseline="middle" fontWeight="900" className="fill-white select-none text-[12px] md:text-[15px]" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                                                     {quizQueue[quizIndex].formulaData?.triangle.right}
                                                  </text>
                                               </svg>
@@ -341,7 +345,7 @@ export default function App() {
                                         ) : quizQueue[quizIndex].formulaData?.rawFormula && (
                                            <div className="flex-1 flex flex-col items-center justify-center px-4 w-full md:w-auto">
                                               <div className={`p-4 md:p-12 bg-slate-950/50 rounded-2xl md:rounded-[2rem] border border-${theme.primary}/20 shadow-2xl mb-4 w-full text-center`}>
-                                                 <p className={`text-xl md:text-5xl font-black text-white italic tracking-tighter leading-tight`}>
+                                                 <p className={`text-2xl sm:text-3xl md:text-6xl font-black text-white italic tracking-tight leading-tight`}>
                                                     {quizQueue[quizIndex].formulaData?.rawFormula}
                                                  </p>
                                               </div>
@@ -361,7 +365,7 @@ export default function App() {
                                                  </div>
                                               ))}
                                            </div>
-                                           <div className="grid grid-cols-2 gap-2 mt-4 md:mt-6">
+                                           <div className="flex gap-2 mt-4 md:mt-6 w-full md:w-auto">
                                               <button 
                                                 onClick={(e) => { e.stopPropagation(); handleSelfGrade(1, quizQueue[quizIndex].id); }}
                                                 className="py-2 px-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:bg-emerald-500/30"
@@ -425,25 +429,24 @@ export default function App() {
                                <button 
                                   disabled={quizIndex === 0}
                                   onClick={() => { setQuizIndex(prev => prev - 1); setShowAnswer(false); }}
-                                  className={`flex items-center gap-3 px-6 py-3 rounded-2xl transition-all ${quizIndex === 0 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-slate-400 hover:text-white hover:bg-white/5 group'}`}
+                                  className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all ${quizIndex === 0 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-emerald-500 bg-emerald-500/5 border border-emerald-500/10 hover:bg-emerald-500/10 group'}`}
                                >
-                                  <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Back</span>
+                                  <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Previous</span>
                                </button>
 
-                               <div className="hidden sm:flex gap-1.5">
+                               <div className="hidden sm:flex gap-1.5 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-800">
                                   {quizQueue.slice(0, 15).map((_, i) => (
                                      <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${i === quizIndex ? `w-8 bg-${theme.primary}` : 'w-2 bg-slate-800 hover:bg-slate-700'}`} />
                                   ))}
-                                  {quizQueue.length > 15 && <span className="text-slate-700 text-[8px] self-center">...</span>}
                                </div>
 
                                <button 
                                   disabled={quizIndex === quizQueue.length - 1}
                                   onClick={() => { setQuizIndex(prev => prev + 1); setShowAnswer(false); }}
-                                  className={`flex items-center gap-3 px-6 py-3 rounded-2xl transition-all ${quizIndex === quizQueue.length - 1 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-slate-400 hover:text-white hover:bg-white/5 group'}`}
+                                  className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all ${quizIndex === quizQueue.length - 1 ? 'text-slate-800 opacity-20 cursor-not-allowed' : 'text-amber-500 bg-amber-500/5 border border-amber-500/10 hover:bg-amber-500/10 group'}`}
                                >
-                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Skip</span>
+                                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Next</span>
                                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
                              </div>
@@ -466,6 +469,7 @@ export default function App() {
               </motion.section>
             )}
           </AnimatePresence>
+        )}
         </main>
 
         <AnimatePresence>
