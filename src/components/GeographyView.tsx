@@ -2,9 +2,121 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, ChevronUp, Flag, Book, List, LayoutGrid } from 'lucide-react';
 import { GEOGRAPHY_DATA } from '../data/geographyData';
-import { GeoTheme, GeoUnit, GeoKeyword, GeoCaseStudy } from '../types';
+import { GeoTheme, GeoUnit, GeoKeyword, GeoCaseStudy, Question } from '../types';
+import { HelpCircle } from 'lucide-react';
 
-export default function GeographyDashboard() {
+interface KeywordFlashcardProps {
+  keyword: GeoKeyword;
+  accentColor: string;
+}
+
+const KeywordFlashcard: React.FC<KeywordFlashcardProps> = ({ keyword, accentColor }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="perspective-1000 h-40 cursor-pointer group"
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <motion.div
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
+        className="relative w-full h-full preserve-3d"
+      >
+        {/* Front */}
+        <div className="absolute inset-0 backface-hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center justify-center text-center group-hover:border-slate-700 transition-colors">
+          <div className={`text-[10px] uppercase font-black tracking-widest text-${accentColor} mb-2`}>Term</div>
+          <div className="text-lg font-bold text-slate-100 group-hover:scale-105 transition-transform">{keyword.term}</div>
+        </div>
+
+        {/* Back */}
+        <div 
+          className="absolute inset-0 backface-hidden bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center rotate-y-180 shadow-2xl"
+          style={{ transform: 'rotateY(180deg)' }}
+        >
+          <div className="text-xs text-slate-300 leading-relaxed overflow-y-auto max-h-full scrollbar-hide font-medium">
+            {keyword.definition}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+interface CaseStudyAccordionProps {
+  caseStudy: GeoCaseStudy;
+  isExpanded: boolean;
+  onToggle: () => void;
+  onStartQuiz: (questions: Question[]) => void;
+}
+
+const CaseStudyAccordion: React.FC<CaseStudyAccordionProps> = ({ 
+  caseStudy, 
+  isExpanded, 
+  onToggle, 
+  onStartQuiz 
+}) => {
+  const allQuestions = useMemo(() => caseStudy.sections.flatMap(s => s.questions || []), [caseStudy.sections]);
+
+  return (
+    <div id={`casestudy-${caseStudy.id}`} className="bg-slate-900/40 rounded-2xl border border-slate-800/60 overflow-hidden transition-all duration-300">
+      <button
+        id={`toggle-${caseStudy.id}`}
+        onClick={onToggle}
+        className={`w-full flex items-center justify-between p-5 text-left group transition-colors ${isExpanded ? `bg-${caseStudy.color}-500/10` : 'hover:bg-slate-800/50'}`}
+      >
+        <div className="flex items-center gap-4">
+          <span className="text-2xl">{caseStudy.flag}</span>
+          <h3 className={`text-sm md:text-base font-bold text-slate-100 group-hover:text-${caseStudy.color}-400 transition-colors`}>
+            {caseStudy.title}
+          </h3>
+        </div>
+        {isExpanded ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
+      </button>
+
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="p-5 pt-0 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {caseStudy.sections.map((section, idx) => (
+                  <div key={idx} className="space-y-3 group/section">
+                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] text-${caseStudy.color}-500/80 mb-2 border-b border-slate-800 pb-1 flex items-center gap-2`}>
+                      <LayoutGrid size={10} /> {section.subtitle}
+                    </h4>
+                    <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                      {section.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {allQuestions.length > 0 && (
+                <div className="pt-6 border-t border-slate-800/50">
+                  <button 
+                    id={`quiz-btn-${caseStudy.id}`}
+                    onClick={() => onStartQuiz(allQuestions)}
+                    className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-${caseStudy.color}-500/10 border border-${caseStudy.color}-500/30 text-[10px] font-black uppercase tracking-[0.2em] text-${caseStudy.color}-400 hover:bg-${caseStudy.color}-500/20 transition-all shadow-xl group/btn`}
+                  >
+                    <HelpCircle size={16} className={`text-${caseStudy.color}-500 group-hover/btn:scale-110 transition-transform`} /> 
+                    Test Knowledge & Case Study Mastery
+                  </button>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default function GeographyDashboard({ onStartQuiz }: { onStartQuiz: (questions: Question[]) => void }) {
   const [activeThemeId, setActiveThemeId] = useState(GEOGRAPHY_DATA[0].id);
   const [activeUnitId, setActiveUnitId] = useState(GEOGRAPHY_DATA[0].units[0]?.id || '');
   const [activeTab, setActiveTab] = useState<'keywords' | 'casestudies'>('keywords');
@@ -167,6 +279,7 @@ export default function GeographyDashboard() {
                       caseStudy={cs} 
                       isExpanded={expandedCaseStudy === cs.id}
                       onToggle={() => setExpandedCaseStudy(expandedCaseStudy === cs.id ? null : cs.id)}
+                      onStartQuiz={onStartQuiz}
                     />
                   ))}
                   {filteredCaseStudies.length === 0 && (
@@ -178,84 +291,6 @@ export default function GeographyDashboard() {
           </div>
         </>
       )}
-    </div>
-  );
-}
-
-function KeywordFlashcard({ keyword, accentColor }: { keyword: GeoKeyword; accentColor: string }) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <div 
-      className="perspective-1000 h-40 cursor-pointer group"
-      onClick={() => setIsFlipped(!isFlipped)}
-    >
-      <motion.div
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-        className="relative w-full h-full preserve-3d"
-      >
-        {/* Front */}
-        <div className="absolute inset-0 backface-hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center justify-center text-center group-hover:border-slate-700 transition-colors">
-          <div className={`text-[10px] uppercase font-black tracking-widest text-${accentColor} mb-2`}>Term</div>
-          <div className="text-lg font-bold text-slate-100 group-hover:scale-105 transition-transform">{keyword.term}</div>
-        </div>
-
-        {/* Back */}
-        <div 
-          className="absolute inset-0 backface-hidden bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center rotate-y-180 shadow-2xl"
-          style={{ transform: 'rotateY(180deg)' }}
-        >
-          <div className="text-xs text-slate-300 leading-relaxed overflow-y-auto max-h-full scrollbar-hide font-medium">
-            {keyword.definition}
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-function CaseStudyAccordion({ caseStudy, isExpanded, onToggle }: { caseStudy: GeoCaseStudy; isExpanded: boolean; onToggle: () => void }) {
-  return (
-    <div className="bg-slate-900/40 rounded-2xl border border-slate-800/60 overflow-hidden transition-all duration-300">
-      <button
-        onClick={onToggle}
-        className={`w-full flex items-center justify-between p-5 text-left group transition-colors ${isExpanded ? `bg-${caseStudy.color}-500/10` : 'hover:bg-slate-800/50'}`}
-      >
-        <div className="flex items-center gap-4">
-          <span className="text-2xl">{caseStudy.flag}</span>
-          <h3 className={`text-sm md:text-base font-bold text-slate-100 group-hover:text-${caseStudy.color}-400 transition-colors`}>
-            {caseStudy.title}
-          </h3>
-        </div>
-        {isExpanded ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
-      </button>
-
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="p-5 pt-0 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {caseStudy.sections.map((section, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] text-${caseStudy.color}-500/80 mb-2 border-b border-slate-800 pb-1 flex items-center gap-2`}>
-                      <LayoutGrid size={10} /> {section.subtitle}
-                    </h4>
-                    <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                      {section.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

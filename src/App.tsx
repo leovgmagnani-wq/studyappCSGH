@@ -186,6 +186,16 @@ export default function App() {
     setShowAnswer(false);
   };
 
+  const startCustomQuiz = (questions: Question[]) => {
+    if (!questions || questions.length === 0) return;
+    const shuffled = shuffleArray(questions).map(shuffleQuestion);
+    setQuizQueue(shuffled);
+    setQuizIndex(0);
+    setQuizScore(0);
+    setShowAnswer(false);
+    setView('quiz');
+  };
+
   const subjectThemes: Record<SubjectId, { primary: string; accent: string; bg: string; font?: string }> = {
     history: { primary: 'amber-500', accent: 'amber-400', bg: 'slate-950', font: 'font-sans' },
     geography: { primary: 'emerald-500', accent: 'emerald-400', bg: 'slate-950', font: 'font-sans' },
@@ -215,79 +225,28 @@ export default function App() {
 
       <div className="flex flex-col md:flex-row flex-1 overflow-hidden relative">
         <main className="flex-1 p-3 md:p-8 bg-gradient-to-br from-slate-950 to-slate-900 overflow-y-auto scrollbar-hide">
-          {activeSubject === 'geography' ? (
-            <GeographyDashboard />
-          ) : (
-            <AnimatePresence mode="wait">
-              {view === 'topic_list' && (
-              <motion.section key="tlist" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <div className="mb-6 md:mb-10 text-center max-w-2xl mx-auto">
-                   <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight">System <span className={`text-${theme.primary}`}>Core</span></h2>
-                   <p className="text-sm md:text-base text-slate-500 font-medium">Cambridge Syllabus 2023-2025. Dynamic knowledge fragments loaded.</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                  {getTopics().map(topic => (
-                    <div key={topic.id} onClick={() => handleTopicSelect(topic)} className="glass p-6 md:p-8 rounded-3xl card-hover cursor-pointer relative group flex flex-col h-full">
-                       <div className="flex justify-between items-start mb-4">
-                         <span className={`text-[10px] font-black font-mono px-2 py-1 bg-${theme.primary}/10 text-${theme.primary} rounded border border-${theme.primary}/20 uppercase tracking-widest`}>
-                           {topic.section || 'Unit'}
-                         </span>
-                       </div>
-                       <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-amber-500 transition-colors uppercase leading-tight">{topic.title}</h3>
-                       <p className="text-[10px] md:text-xs text-slate-500 line-clamp-2 mb-6">{topic.description}</p>
-                       <div className="mt-auto pt-6 border-t border-slate-800/50 flex gap-4 items-center">
-                          <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">{topic.subtopics.length} Units</span>
-                          <div className="h-1 flex-1 bg-slate-900 rounded-full overflow-hidden">
-                             <div className={`h-full bg-${theme.primary} w-full opacity-50`} />
-                          </div>
-                          <ChevronRight size={16} className="text-slate-700" />
-                       </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.section>
-            )}
-
-            {view === 'topic_detail' && (
-              <motion.section key="tdet" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="grid grid-cols-1 xl:grid-cols-12 gap-6 md:gap-8 h-full">
-                <div className="xl:col-span-8 flex flex-col">
-                  <button onClick={() => setView('topic_list')} className="text-[10px] font-black text-slate-500 flex items-center gap-2 hover:text-white mb-4 md:mb-6 uppercase tracking-widest self-start"><ArrowLeft size={14}/> Return</button>
-                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-6 md:mb-8">
-                     <span className={`text-xs md:text-sm font-black font-mono text-${theme.primary}`}>{activeTopic?.section}</span>
-                     <h2 className="text-3xl md:text-5xl font-black uppercase leading-tight md:leading-none">{activeTopic?.title}</h2>
-                  </div>
-                  <div className="grid gap-3 md:gap-4">
-                    {activeTopic?.subtopics.map(sub => (
-                      <div key={sub.id} onClick={() => startTopicQuiz(sub)} className="glass p-4 md:p-8 rounded-3xl flex items-center justify-between card-hover cursor-pointer group">
-                        <div className="flex items-center gap-4 md:gap-6">
-                           <div className={`w-10 h-10 md:w-14 md:h-14 bg-slate-900 rounded-xl md:rounded-2xl flex items-center justify-center text-slate-400 group-hover:text-${theme.primary} transition-colors`}><BookOpen className="w-5 h-5 md:w-7 md:h-7"/></div>
-                           <div>
-                             <h4 className="font-bold text-lg md:text-2xl group-hover:text-white transition-colors">{sub.title}</h4>
-                             <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mt-1">Status: Ready for Sync</p>
-                           </div>
-                        </div>
-                        <ChevronRight size={20} className="text-slate-700" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="xl:col-span-4 glass p-6 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] border-blue-500/10 flex flex-col h-fit xl:h-full">
-                   <h4 className={`text-[10px] font-black uppercase tracking-[0.5em] text-${theme.primary} mb-6 md:mb-10 pb-4 border-b border-slate-800 flex items-center gap-3`}><History size={14}/> {activeSubject === 'history' ? 'Timeline' : 'Knowledge Base'}</h4>
-                   <div className="space-y-4 overflow-y-auto pr-2 scrollbar-hide text-xs text-slate-400 leading-relaxed font-mono max-h-[300px] xl:max-h-none">
-                     {activeTopic?.description}
-                     <div className="h-px bg-slate-800 my-4" />
-                     {activeTopic?.timeline?.map((e, idx) => (
-                        <TimelineNode key={idx} event={e} onClick={() => setSelectedTimelineEvent(e)} />
-                     ))}
-                   </div>
-                </div>
-              </motion.section>
-            )}
-
-            {(view === 'quiz' || view === 'srs_review') && (
-              <motion.section key="quiz" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="max-w-4xl mx-auto py-2 md:py-12 w-full">
+          <AnimatePresence mode="wait">
+            {(view === 'quiz' || view === 'srs_review') ? (
+              <motion.section 
+                key="quiz" 
+                initial={{ opacity: 0, scale: 0.98 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="max-w-4xl mx-auto py-2 md:py-12 w-full"
+              >
                  <div className="flex justify-between items-center mb-4 md:mb-8">
-                    <button onClick={() => setView('topic_detail')} className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white">Abort Sync</button>
+                    <button 
+                      onClick={() => {
+                        if (activeSubject === 'geography') {
+                          setView('topic_list'); // Geography doesn't use topic_detail in the same way
+                        } else {
+                          setView('topic_detail');
+                        }
+                      }} 
+                      className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white"
+                    >
+                      Abort Sync
+                    </button>
                     <div className={`text-[9px] md:text-xs font-bold text-${theme.primary} bg-${theme.primary}/10 px-2 md:px-4 py-1 rounded-full border border-${theme.primary}/20`}>{quizIndex + 1} / {quizQueue.length}</div>
                  </div>
                  {quizIndex < quizQueue.length ? (
@@ -467,9 +426,84 @@ export default function App() {
                    </div>
                  )}
               </motion.section>
+            ) : activeSubject === 'geography' ? (
+              <motion.div
+                key="geography"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <GeographyDashboard onStartQuiz={startCustomQuiz} />
+              </motion.div>
+            ) : (
+              <>
+                {view === 'topic_list' && (
+                  <motion.section key="tlist" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <div className="mb-6 md:mb-10 text-center max-w-2xl mx-auto">
+                       <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight">System <span className={`text-${theme.primary}`}>Core</span></h2>
+                       <p className="text-sm md:text-base text-slate-500 font-medium">Cambridge Syllabus 2023-2025. Dynamic knowledge fragments loaded.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                      {getTopics().map(topic => (
+                        <div key={topic.id} onClick={() => handleTopicSelect(topic)} className="glass p-6 md:p-8 rounded-3xl card-hover cursor-pointer relative group flex flex-col h-full">
+                           <div className="flex justify-between items-start mb-4">
+                             <span className={`text-[10px] font-black font-mono px-2 py-1 bg-${theme.primary}/10 text-${theme.primary} rounded border border-${theme.primary}/20 uppercase tracking-widest`}>
+                               {topic.section || 'Unit'}
+                             </span>
+                           </div>
+                           <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-amber-500 transition-colors uppercase leading-tight">{topic.title}</h3>
+                           <p className="text-[10px] md:text-xs text-slate-500 line-clamp-2 mb-6">{topic.description}</p>
+                           <div className="mt-auto pt-6 border-t border-slate-800/50 flex gap-4 items-center">
+                              <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">{topic.subtopics.length} Units</span>
+                              <div className="h-1 flex-1 bg-slate-900 rounded-full overflow-hidden">
+                                 <div className={`h-full bg-${theme.primary} w-full opacity-50`} />
+                              </div>
+                              <ChevronRight size={16} className="text-slate-700" />
+                           </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.section>
+                )}
+
+                {view === 'topic_detail' && (
+                  <motion.section key="tdet" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="grid grid-cols-1 xl:grid-cols-12 gap-6 md:gap-8 h-full">
+                    <div className="xl:col-span-8 flex flex-col">
+                      <button onClick={() => setView('topic_list')} className="text-[10px] font-black text-slate-500 flex items-center gap-2 hover:text-white mb-4 md:mb-6 uppercase tracking-widest self-start"><ArrowLeft size={14}/> Return</button>
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-6 md:mb-8">
+                         <span className={`text-xs md:text-sm font-black font-mono text-${theme.primary}`}>{activeTopic?.section}</span>
+                         <h2 className="text-3xl md:text-5xl font-black uppercase leading-tight md:leading-none">{activeTopic?.title}</h2>
+                      </div>
+                      <div className="grid gap-3 md:gap-4">
+                        {activeTopic?.subtopics.map(sub => (
+                          <div key={sub.id} onClick={() => startTopicQuiz(sub)} className="glass p-4 md:p-8 rounded-3xl flex items-center justify-between card-hover cursor-pointer group">
+                            <div className="flex items-center gap-4 md:gap-6">
+                               <div className={`w-10 h-10 md:w-14 md:h-14 bg-slate-900 rounded-xl md:rounded-2xl flex items-center justify-center text-slate-400 group-hover:text-${theme.primary} transition-colors`}><BookOpen className="w-5 h-5 md:w-7 md:h-7"/></div>
+                               <div>
+                                 <h4 className="font-bold text-lg md:text-2xl group-hover:text-white transition-colors">{sub.title}</h4>
+                                 <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mt-1">Status: Ready for Sync</p>
+                               </div>
+                            </div>
+                            <ChevronRight size={20} className="text-slate-700" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="xl:col-span-4 glass p-6 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] border-blue-500/10 flex flex-col h-fit xl:h-full">
+                       <h4 className={`text-[10px] font-black uppercase tracking-[0.5em] text-${theme.primary} mb-6 md:mb-10 pb-4 border-b border-slate-800 flex items-center gap-3`}><History size={14}/> {activeSubject === 'history' ? 'Timeline' : 'Knowledge Base'}</h4>
+                       <div className="space-y-4 overflow-y-auto pr-2 scrollbar-hide text-xs text-slate-400 leading-relaxed font-mono max-h-[300px] xl:max-h-none">
+                         {activeTopic?.description}
+                         <div className="h-px bg-slate-800 my-4" />
+                         {activeTopic?.timeline?.map((e, idx) => (
+                            <TimelineNode key={idx} event={e} onClick={() => setSelectedTimelineEvent(e)} />
+                         ))}
+                       </div>
+                    </div>
+                  </motion.section>
+                )}
+              </>
             )}
           </AnimatePresence>
-        )}
         </main>
 
         <AnimatePresence>

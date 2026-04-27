@@ -80,6 +80,7 @@ export interface GeoKeyword {
 export interface GeoCaseStudySection {
   subtitle: string;
   body: string;
+  questions?: Question[];
 }
 
 export interface GeoCaseStudy {
